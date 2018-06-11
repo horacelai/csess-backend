@@ -1,0 +1,12 @@
+{
+    "totalObjectives": 1,
+    "0": {
+        "type": "ANSWER",
+        "display": {
+            "title": "尋找隱藏於校園內的蘑菇",
+            "description": "SHRLO為了避免伺服器被破壞，不惜大花工本，將蘑菇隱藏於校園四周，你的任務就是要將蘑菇上的編碼找出。"
+        },
+        "answer": "AAA",
+        "score": 1000
+    }
+}
