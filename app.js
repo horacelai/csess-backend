@@ -21,7 +21,7 @@ client.on("error", function (err) {
 console.log("Listening on host 8080");
 
 app.get('/', function (req, res) {
-    redisHelper.newPlayer(client, '123456', {team: '1'}, (reply) => {
+    redisHelper.addPlayer(client, '123456', {team: '1'}, (reply) => {
         res.send(reply);
     });
 });
