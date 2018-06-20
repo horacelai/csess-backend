@@ -1,14 +1,14 @@
 # CSESS Ocamp system
 
 ### Installation Guide
-To run our app, please first install Redis via [this link](https://redis.io/).
+1. Install Redis via [this link](https://redis.io/).
 
-1. Install npm depentencies
+2. Install npm depentencies
 ```
 npm install
 ```
 
-2. Start the app
+3. Start the app
 ```
 npm start
 ```
