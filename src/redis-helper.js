@@ -44,6 +44,18 @@ exports.getPlayerDetails = function(client, playerId, callback){
     });
 }
 
+exports.getPlayerRole = function(client, playerId, callback){
+    client.hget('player:' + playerId, 'role', (err, reply) => {
+        callback(reply);
+    });
+}
+
+exports.setPlayerRole = function(client, playerId, role, callback){
+    client.hget('player:' + playerId, 'role', role, (err, reply) => {
+        callback(reply);
+    });
+}
+
 exports.getTeams = function(client, callback){
     client.zrangebyscore('teams', '0', '+inf', (err, reply) =>{
         callback(reply);
@@ -58,24 +70,6 @@ exports.getTeamScore = function(client, teamId, callback){
 
 exports.getTeamDetails = function(client, teamId, callback){
     client.hgetall('team:' + teamId, (err, reply) => {
-        callback(reply);
-    });
-}
-
-exports.setAdmin = function(client, playerId, callback){
-    client.sadd('admins', playerId, (err, replies) => {
-        callback(replies);
-    });
-}
-
-exports.isAdmin = function(client, playerId, callback){
-    client.sismember('admins', playerId, (err, reply) => {
-        callback(reply);
-    });
-}
-
-exports.removeAdmin = function(client, playerId, callback){
-    client.srem('admins', playerId, (err, reply) => {
         callback(reply);
     });
 }
