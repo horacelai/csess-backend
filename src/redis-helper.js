@@ -10,6 +10,12 @@ exports.newSession = function(client, sessionId, sessionDetail, callback){
     });
 }
 
+exports.playerExtist = function(cilent, playerId, callback){
+    client.SISMEMBER('players', playerId, (err, reply)=>{
+        callback(reply == 1);
+    })
+}
+
 exports.addPlayer = function(client, playerId, playerDetail, callback){
     client.multi().HMSET('player:' + playerId, playerDetail).
         sadd('team:' + playerDetail.team + ':list', playerId).
@@ -18,9 +24,19 @@ exports.addPlayer = function(client, playerId, playerDetail, callback){
     });
 }
 
-exports.addTeams = function(client, teamId, teamDetail, callback){
-    client.multi().HMSET('team:' + teamId, teamDetail).
-        zadd('teams:', teamId, 'NX', 0).
+exports.addTeam = function(client, teamId, teamDetail, callback){
+    client.multi().
+        HMSET('team:' + teamId, teamDetail).
+        ZADD('teams', 'NX', 0, teamId).
+        exec((err, replies) => {
+            callback(replies);
+    });
+}
+
+exports.removeTeam = function(client, teamId, callback){
+    client.multi().
+        DEL('team:' + teamId).
+        ZREM('teams', teamId).
         exec((err, replies) => {
             callback(replies);
     });

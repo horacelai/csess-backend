@@ -7,6 +7,7 @@ const client = redis.createClient({});
 const PubSubClient = redis.createClient({});
 const redisAdapter = require('socket.io-redis');
 
+const fetchAction = require('./src/actionFetch');
 const redisHelper = require('./src/redis-helper');
 
 io.origins(['*:*']);
@@ -29,19 +30,20 @@ app.post('/login', function (req, res) {
   res.sendFile(__dirname + '/index.html');
 });
 
-io.on('connection', (socket) => {
-  socket.use((packet, next) => {
-      const sessionid = packet.handshake.query.sessionId;
-      redisHelper.checkSession(client, sessionid, (reply) => {
-          if(reply){
-              packet.handshake.query.playerId = reply;
-              return next();
-          }
-          next(new Error('Authencation error!'));
-      });
-      next(new Error(''));
-  });
+io.use((socket, next) => {
+    const sessionid = socket.handshake.query.sessionId;
+    redisHelper.checkSession(client, sessionid, (reply) => {
+        reply = 'aaaaaa'; //temp line
+        if(reply){
+            socket.request.user = reply;
+            return next();
+        }
+        return next(new Error('Authencation error!'));
+    });
+    return next(new Error(''));
+});
 
+io.on('connection', (socket) => {
   socket.on('action', (data) => {
       fetchAction(client, socket, data);
   });
