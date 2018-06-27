@@ -7,14 +7,17 @@ const adminHandler = function(redisCilent, socket, action){
             let teams = {};
             let totalTeams = 0;
             for(let i=0; i<reply.length; i++){
-                let team = reply[i];
-                redisHelper.getTeamDetails(redisCilent, team, (re)=>{
-                    teams[team] = re;
-                    totalTeams++;
-                    if(totalTeams == reply.length){
-                        socket.emit('action', {type: 'ADMIN_RETURN_TEAMS', data: teams});
-                    }
-                })
+                if(i%2 == 0){
+                    let team = reply[i];
+                    redisHelper.getTeamDetails(redisCilent, team, (re)=>{
+                        teams[team] = re;
+                        teams[team].score = reply[i+1];
+                        totalTeams++;
+                        if(totalTeams >= reply.length / 2){
+                            socket.emit('action', {type: 'ADMIN_RETURN_TEAMS', data: teams});
+                        }
+                    });
+                }
             }
         });
     }else if(action.type == 'IO:ADMIN_ADD_TEAM'){

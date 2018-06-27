@@ -73,7 +73,7 @@ exports.setPlayerRole = function(client, playerId, role, callback){
 }
 
 exports.getTeams = function(client, callback){
-    client.zrangebyscore('teams', '0', '+inf', (err, reply) =>{
+    client.zrangebyscore('teams', '0', '+inf', 'WITHSCORES', (err, reply) =>{
         callback(reply);
     });
 }
