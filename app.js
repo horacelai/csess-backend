@@ -33,7 +33,7 @@ app.post('/login', function (req, res) {
 io.use((socket, next) => {
     const sessionid = socket.handshake.query.sessionId;
     redisHelper.checkSession(client, sessionid, (reply) => {
-        reply = 'aaaaaa'; //temp line
+        reply = 'admin'; //temp line
         if(reply){
             socket.request.user = reply;
             return next();
@@ -44,7 +44,13 @@ io.use((socket, next) => {
 });
 
 io.on('connection', (socket) => {
-  socket.on('action', (data) => {
-      fetchAction(client, socket, data);
-  });
+    redisHelper.getPlayerRole(client, socket.request.user, (reply)=>{
+        if(reply){
+            socket.join(reply);
+        }
+    });
+
+    socket.on('action', (data) => {
+        fetchAction(client, socket, data);
+    });
 });

@@ -3,15 +3,18 @@ const redisHelper = require('./src/redis-helper');
 const redis = require("redis");
 const client = redis.createClient({});
 
+client.flushall(()=>{
+    console.log('Deleted all key!');
+});
+
 let playerid = 'admin';
 
-
-redisHelper.addTeam(client, 'ADMIN', {
+redisHelper.addHiddenTeam(client, 'ADMIN', {
     name: 'admin',
     color: '#FFFFFF'
 }, (replies)=>{
     console.log('team admin created!');
-});
+}, true);
 
 redisHelper.addPlayer(client, playerid, {
     team: 'ADMIN',
@@ -23,5 +26,10 @@ redisHelper.addPlayer(client, playerid, {
 
 redisHelper.getTeams(client, (reply)=>{
     console.log('teams:' + reply);
+    client.quit();
+});
+
+redisHelper.getPlayers(client, (reply)=>{
+    console.log('players:' + reply);
     client.quit();
 });

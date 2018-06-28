@@ -27,7 +27,16 @@ exports.addPlayer = function(client, playerId, playerDetail, callback){
 exports.addTeam = function(client, teamId, teamDetail, callback){
     client.multi().
         HMSET('team:' + teamId, teamDetail).
-        ZADD('teams', 'NX', 0, teamId).
+        ZADD('teams', 'NX', '0', teamId).
+        exec((err, replies) => {
+            callback(replies);
+    });
+}
+
+exports.addHiddenTeam = function(client, teamId, teamDetail, callback){
+    client.multi().
+        HMSET('team:' + teamId, teamDetail).
+        ZADD('teams', 'NX', '-1', teamId).
         exec((err, replies) => {
             callback(replies);
     });
@@ -49,13 +58,28 @@ exports.getPlayers = function(client, callback){
 }
 
 exports.getPlayersFromTeam = function(client, teamId, callback){
-    client.smembers('team:' + teamId + 'list', (err, reply)=>{
+    client.smembers('team:' + teamId + ':list', (err, reply)=>{
+        console.log(reply);
+        callback(reply);
+    });
+}
+
+exports.getPlayersWithoutTeam = function(client, teams, callback){
+    let teams = teams.map((team)=>{return ('team:' + team)});
+    client.SDIFF('players', teams, (err, reply)=>{
         callback(reply);
     });
 }
 
 exports.getPlayerDetails = function(client, playerId, callback){
     client.hgetall('player:' + playerId, (err, reply) => {
+        callback(reply);
+    });
+}
+
+exports.getPlayerTeam = function(client, playerId, callback){
+    client.hget('player:' + playerId, 'team', (err, reply) => {
+        console.log(reply);
         callback(reply);
     });
 }
@@ -78,8 +102,20 @@ exports.getTeams = function(client, callback){
     });
 }
 
+exports.getTeamsList = function(client, callback){
+    client.zrangebyscore('teams', '-1', '+inf', (err, reply) =>{
+        callback(reply);
+    });
+}
+
 exports.getTeamScore = function(client, teamId, callback){
     client.zscore('teams', teamId, (err, reply) => {
+        callback(reply);
+    });
+}
+
+exports.updateTeamScore = function(client, teamId, score, callback){
+    client.ZADD('teams', 'XX', score, teamId, (err, reply)=>{
         callback(reply);
     });
 }
