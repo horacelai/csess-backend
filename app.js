@@ -38,17 +38,19 @@ io.use((socket, next) => {
             socket.request.user = reply;
             return next();
         }
-        return next(new Error('Authencation error!'));
+        return next();
     });
     return next(new Error(''));
 });
 
 io.on('connection', (socket) => {
-    redisHelper.getPlayerRole(client, socket.request.user, (reply)=>{
-        if(reply){
-            socket.join(reply);
-        }
-    });
+    if(socket.request.user){
+        redisHelper.getPlayerRole(client, socket.request.user, (reply)=>{
+            if(reply){
+                socket.join(reply);
+            }
+        });
+    }
 
     socket.on('action', (data) => {
         fetchAction(client, socket, data);

@@ -57,9 +57,48 @@ const adminHandler = function(redisCilent, socket, action){
     }else if(action.type == 'IO:ADMIN_GET_PLAYERS'){
         redisHelper.getPlayersFromTeam(redisCilent, action.payload.id, (reply)=>{
             if(reply){
-                socket.emit('action', {type: 'ADMIN_RETURN_PLAYERS', payload: reply});
+                let players = {};
+                let totalPlayers = 0;
+                if(reply.length == 0){
+                    socket.emit('action', {type: 'ADMIN_RETURN_PLAYERS', payload: {}});
+                    return;
+                }
+                for(let i=0; i<reply.length; i++){
+                    let player = reply[i];
+                    redisHelper.getPlayerDetails(redisCilent, player, (re)=>{
+                        players[player] = re;
+                        totalPlayers++;
+                        if(totalPlayers >= reply.length){
+                            socket.emit('action', {type: 'ADMIN_RETURN_PLAYERS', payload: players});
+                        }
+                    });
+                }
             }
         });
+    }else if(action.type == 'IO:ADMIN_ADD_PLAYER'){
+        redisHelper.addPlayer(redisCilent, action.payload.id, action.payload.data, (reply)=>{
+            if(reply){
+                let data = {};
+                data[action.payload.id] = action.payload.data;
+                socket.emit('action', {type: 'ADMIN_PLAYER_NEW', payload: data});
+                socket.to('ADMIN').emit('action', {type: 'ADMIN_PLAYER_NEW', payload: data});
+            }
+        });
+    }else if(action.type == 'IO:ADMIN_REMOVE_PLAYER'){
+        redisHelper.removePlayer(redisCilent, action.payload.id, action.payload.data, (reply)=>{
+            if(reply){
+                socket.emit('action', {type: 'ADMIN_PLAYER_REMOVED', id: action.payload.id});
+                socket.to('ADMIN').emit('action', {type: 'ADMIN_PLAYER_REMOVED', id: action.payload.id});
+            }
+        })
+    }
+    else if(action.type == 'IO:ADMIN_GET_TASKS'){
+        redisHelper.getTasks(redisCilent, (tasks)=>{
+            if(tasks){
+                // NOT FINISHED
+                socket.emit('action', {type: 'ADMIN_RETURN_TASKS', payload: tasks});
+            }
+        })
     }
 }
 

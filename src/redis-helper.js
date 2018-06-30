@@ -24,9 +24,18 @@ exports.addPlayer = function(client, playerId, playerDetail, callback){
     });
 }
 
+exports.removePlayer = function(client, playerId, playerData, callback){
+    client.multi().DEL('player:' + playerId).
+        srem('team:' + playerData.team + ':list', playerId).
+        srem('players', playerId).exec((err, replies) => {
+            callback(replies);
+    });
+}
+
 exports.addTeam = function(client, teamId, teamDetail, callback){
     client.multi().
         HMSET('team:' + teamId, teamDetail).
+        HMSET('task:' + teamId, {currentObjective: 0, taskId: -1}).
         ZADD('teams', 'NX', '0', teamId).
         exec((err, replies) => {
             callback(replies);
@@ -45,6 +54,7 @@ exports.addHiddenTeam = function(client, teamId, teamDetail, callback){
 exports.removeTeam = function(client, teamId, callback){
     client.multi().
         DEL('team:' + teamId).
+        DEL('task:' + teamId).
         ZREM('teams', teamId).
         exec((err, replies) => {
             callback(replies);
@@ -59,16 +69,19 @@ exports.getPlayers = function(client, callback){
 
 exports.getPlayersFromTeam = function(client, teamId, callback){
     client.smembers('team:' + teamId + ':list', (err, reply)=>{
-        console.log(reply);
         callback(reply);
     });
 }
 
-exports.getPlayersWithoutTeam = function(client, teams, callback){
-    let teams = teams.map((team)=>{return ('team:' + team)});
-    client.SDIFF('players', teams, (err, reply)=>{
-        callback(reply);
-    });
+exports.deletePlayersWithoutTeam = function(client, callback){
+    module.exports.getTeamsList(client, (teams)=>{
+        teams = teams.map((team)=>{return ('team:' + team + ':list')});
+        client.SDIFF('players', teams, (err, reply)=>{
+            for(let i=0; i<reply.length; i++){
+                module.exports.removePlayer(client, reply[i], '', ()=> { callback(reply) });
+            };
+        });
+    })
 }
 
 exports.getPlayerDetails = function(client, playerId, callback){
@@ -103,7 +116,7 @@ exports.getTeams = function(client, callback){
 }
 
 exports.getTeamsList = function(client, callback){
-    client.zrangebyscore('teams', '-1', '+inf', (err, reply) =>{
+    client.zrevrangebyscore('teams', '+inf', '-1', (err, reply) =>{
         callback(reply);
     });
 }
@@ -135,5 +148,24 @@ exports.setStage = function(client, stage, callback){
 exports.getStage = function(client, callback){
     client.get('stage', (err, replies) => {
         callback(replies);
+    });
+}
+
+exports.getTasks = function(client, callback){
+    client.zrangebyscore('teams', '0', '+inf', (err, teams) => {
+        if(teams && teams.length > 0){
+            let tasks = {};
+            let taskCount = 0;
+            for(let i=0; i<teams.length; i++){
+                client.hgetall('task:' + teams[i], (err, task) => {
+                    tasks[teams[i]] = task;
+                    taskCount++;
+                    if(taskCount == teams.length){
+                        callback(tasks);
+                    }
+                });
+            }
+
+        }
     });
 }
