@@ -223,6 +223,19 @@ const adminHandler = function(redisCilent, socket, action){
 
             }
         })
+    }else if(action.type == 'IO:ADMIN_GET_AUTH_MODE'){
+        redisHelper.getAuthMode(redisCilent, (reply)=>{
+            if(reply){
+                socket.emit('action', {type: 'ADMIN_RETURN_AUTH_MODE', payload: reply});
+            }
+        });
+    }else if(action.type == 'IO:ADMIN_SET_AUTH_MODE'){
+        redisHelper.setAuthMode(redisCilent, action.payload, (reply)=>{
+            if(reply){
+                socket.emit('action', {type: 'ADMIN_RETURN_AUTH_MODE', payload: action.payload});
+                socket.to('ADMIN').emit('action', {type: 'ADMIN_RETURN_AUTH_MODE', payload: action.payload});
+            }
+        });
     }
 }
 

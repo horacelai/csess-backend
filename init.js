@@ -34,5 +34,10 @@ redisHelper.getPlayers(client, (reply)=>{
 
 redisHelper.setStage(client, 'NONE', (reply)=>{
     console.log('Stage set to NONE.');
+
+});
+
+redisHelper.setAuthMode(client, 'OFF', (reply)=>{
+    console.log('Set auth mode to NONE.');
     client.quit();
 });

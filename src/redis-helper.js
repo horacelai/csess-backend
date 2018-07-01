@@ -212,3 +212,15 @@ exports.setTask = function(client, teamId, taskId, callback){
         callback(reply);
     });
 }
+
+exports.setAuthMode = function(client, mode, callback){
+    client.set('auth', mode, (err, reply) => {
+        callback(reply);
+    });
+}
+
+exports.getAuthMode = function(client, callback){
+    client.get('auth', (err, reply) => {
+        callback(reply);
+    });
+}
