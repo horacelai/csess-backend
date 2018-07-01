@@ -1,4 +1,7 @@
 const redisHelper = require('../redis-helper');
+const _ = require('lodash/core');
+
+const Mission = require('../missions/mission');
 
 const adminHandler = function(redisCilent, socket, action){
     console.log(action.type);
@@ -93,10 +96,131 @@ const adminHandler = function(redisCilent, socket, action){
         })
     }
     else if(action.type == 'IO:ADMIN_GET_TASKS'){
-        redisHelper.getTasks(redisCilent, (tasks)=>{
+        redisHelper.getTasks(redisCilent, (reply)=>{
+            let stage = reply.stage;
+            let tasks = reply.tasks;
             if(tasks){
-                // NOT FINISHED
-                socket.emit('action', {type: 'ADMIN_RETURN_TASKS', payload: tasks});
+                let processedTask = {};
+                let totalTasks = _.size(tasks);
+                _.forEach(tasks, (task, id)=>{
+                    console.log(task);
+                    if(stage === 'NONE' || task.taskId === '-1'){
+                        let t = {
+                            display: {
+                                title: "請等候接收指令",
+                                description: ""
+                            },
+                            type: 'END',
+                            taskId: task.taskId
+                        };
+                        processedTask[id] = t;
+                        totalTasks--;
+                    }else{
+                        let objectives = Mission[stage];
+                        let t = {
+                            display: Mission[stage].objectives[task.taskId][task.currentObjective].display,
+                            taskId: task.taskId,
+                            type: Mission[stage].objectives[task.taskId][task.currentObjective].type
+                        }
+                        processedTask[id] = t;
+                        totalTasks--;
+                    }
+                });
+
+                if(totalTasks === 0){
+                    let mis;
+                    if(!Mission[stage]){
+                        mis = [];
+                    }else{
+                        mis = _.keys(Mission[stage].objectives);
+                    }
+                    socket.emit('action', {type: 'ADMIN_RETURN_TASKS', payload: {tasks: processedTask, tasksList: mis}});
+                }
+            }
+        });
+    }else if(action.type == 'IO:ADMIN_GET_STAGES'){
+        redisHelper.getStage(redisCilent, (reply)=>{
+            if(reply){
+                let stages = _.keys(Mission);
+                socket.emit('action', {type: 'ADMIN_RETURN_STAGES', payload: {currentStage: reply, stages: stages}});
+            }
+        });
+    }else if(action.type == 'IO:ADMIN_UPDATE_STAGES'){
+        redisHelper.setStage(redisCilent, action.payload, (reply)=>{
+            if(reply){
+                redisHelper.resetTasks(redisCilent, (rep)=>{
+                    let processedTask = {};
+                    let totalTasks = _.size(rep.tasks);
+                    _.forEach(rep.tasks, (task, id)=>{
+                            let t = {
+                                display: {
+                                    title: "請等候接收指令",
+                                    description: ""
+                                },
+                                type: 'END',
+                                taskId: task.taskId
+                            };
+                            processedTask[id] = t;
+                    });
+                    let mis;
+                    if(!Mission[action.payload]){
+                        mis = [];
+                    }else{
+                        mis = _.keys(Mission[action.payload].objectives);
+                    }
+                    socket.emit('action', {type: 'ADMIN_RETURN_TASKS', payload: {currentStage: action.payload, tasks: processedTask, tasksList: mis}} );
+                    socket.to('ADMIN').emit('action', {type: 'ADMIN_RETURN_TASKS', payload: {currentStage: action.payload, tasks: processedTask, tasksList: mis}} );
+                })
+            }
+        });
+    }else if(action.type == 'IO:ADMIN_SET_TASK'){
+        redisHelper.setTask(redisCilent, action.payload.teamId, action.payload.taskId, (reply)=>{
+            if(reply){
+                redisHelper.getStage(redisCilent, (reply)=>{
+                    let task = {
+                        display: Mission[reply].objectives[action.payload.taskId][0].display,
+                        taskId: action.payload.taskId,
+                        type: Mission[reply].objectives[action.payload.taskId][0].type
+                    }
+                    socket.emit('action', {type: 'ADMIN_UPDATE_TASK', payload: {teamId: action.payload.teamId, task: task } } );
+                    socket.to('ADMIN').emit('action', {type: 'ADMIN_UPDATE_TASK', payload: {teamId: action.payload.teamId, task: task } } );
+                });
+            }
+        })
+    }else if(action.type == 'IO:ADMIN_SKIP_TASK'){
+        redisHelper.nextTask(redisCilent, action.payload.teamId, (reply)=>{
+            if(reply){
+                redisHelper.getStage(redisCilent, (stage)=>{
+                    let task = {
+                        display: Mission[stage].objectives[reply.taskId][reply.currentObjective].display,
+                        taskId: reply.taskId,
+                        type: Mission[stage].objectives[reply.taskId][reply.currentObjective].type
+                    }
+                    socket.emit('action', {type: 'ADMIN_UPDATE_TASK', payload: {teamId: action.payload.teamId, task: task } } );
+                    socket.to('ADMIN').emit('action', {type: 'ADMIN_UPDATE_TASK', payload: {teamId: action.payload.teamId, task: task } } );
+                });
+            }
+        })
+
+    }else if(action.type == 'IO:ADMIN_FINISH_TASK'){
+        redisHelper.nextTask(redisCilent, action.payload.teamId, (reply)=>{
+            if(reply){
+                redisHelper.getStage(redisCilent, (stage)=>{
+                    let score = Mission[stage].objectives[reply.taskId][reply.currentObjective - 1].score || 0;
+
+                    redisHelper.addTeamScore(redisCilent, action.payload.teamId, score, (rep)=>{
+                        socket.to('ADMIN').emit('action', {type: 'ADMIN_CHANGE_SCORE', payload: {id: action.payload.teamId, score: rep}});
+                    });
+
+                    let task = {
+                        display: Mission[stage].objectives[reply.taskId][reply.currentObjective].display,
+                        taskId: reply.taskId,
+                        type: Mission[stage].objectives[reply.taskId][reply.currentObjective].type
+                    }
+                    socket.emit('action', {type: 'ADMIN_UPDATE_TASK', payload: {teamId: action.payload.teamId, task: task } } );
+                    socket.to('ADMIN').emit('action', {type: 'ADMIN_UPDATE_TASK', payload: {teamId: action.payload.teamId, task: task } } );
+                });
+
             }
         })
     }

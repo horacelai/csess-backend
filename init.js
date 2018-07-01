@@ -26,10 +26,13 @@ redisHelper.addPlayer(client, playerid, {
 
 redisHelper.getTeams(client, (reply)=>{
     console.log('teams:' + reply);
-    client.quit();
 });
 
 redisHelper.getPlayers(client, (reply)=>{
     console.log('players:' + reply);
+});
+
+redisHelper.setStage(client, 'NONE', (reply)=>{
+    console.log('Stage set to NONE.');
     client.quit();
 });

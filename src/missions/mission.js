@@ -1,13 +1,7 @@
-class Mission{
-    constructor(name, description){
-        this.name = name;
-        this.description = description;
-        this.objectiveSets = [];
-    }
-
-    addObjectives(objective){
-        this.objectiveSets.push(objective);
-    }
+const Mission = {
+    'NONE': {},
+    'CITY_HUNT': require('./cityHunt'),
+    'SCHOOL_HUNT': require('./schoolHunt')
 }
 
 module.exports = Mission;

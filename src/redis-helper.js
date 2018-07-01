@@ -35,7 +35,7 @@ exports.removePlayer = function(client, playerId, playerData, callback){
 exports.addTeam = function(client, teamId, teamDetail, callback){
     client.multi().
         HMSET('team:' + teamId, teamDetail).
-        HMSET('task:' + teamId, {currentObjective: 0, taskId: -1}).
+        HMSET('task:' + teamId, {currentObjective: 0, taskId: '-1'}).
         ZADD('teams', 'NX', '0', teamId).
         exec((err, replies) => {
             callback(replies);
@@ -133,6 +133,12 @@ exports.updateTeamScore = function(client, teamId, score, callback){
     });
 }
 
+exports.addTeamScore = function(client, teamId, score, callback){
+    client.ZINCRBY('teams', score, teamId, (err, reply)=>{
+        callback(reply);
+    });
+}
+
 exports.getTeamDetails = function(client, teamId, callback){
     client.hgetall('team:' + teamId, (err, reply) => {
         callback(reply);
@@ -152,7 +158,8 @@ exports.getStage = function(client, callback){
 }
 
 exports.getTasks = function(client, callback){
-    client.zrangebyscore('teams', '0', '+inf', (err, teams) => {
+    client.multi().zrangebyscore('teams', '0', '+inf').get('stage').exec((err, reply) => {
+        let teams = reply[0];
         if(teams && teams.length > 0){
             let tasks = {};
             let taskCount = 0;
@@ -161,11 +168,47 @@ exports.getTasks = function(client, callback){
                     tasks[teams[i]] = task;
                     taskCount++;
                     if(taskCount == teams.length){
-                        callback(tasks);
+                        callback({stage: reply[1], tasks: tasks});
                     }
                 });
             }
-
+        }else if(teams.length === 0){
+            callback({stage: reply[1], tasks: {}});
         }
+    });
+}
+
+exports.nextTask = function(client, teamId, callback){
+    client.HINCRBY('task:' + teamId, 'currentObjective', 1, (err, replies) => {
+        client.hgetall('task:' + teamId, (err, reply)=>{
+            callback(reply);
+        });
+    });
+}
+
+exports.resetTasks = function(client, callback){
+    client.zrangebyscore('teams', '0', '+inf', (err, teams)=>{
+        if(teams){
+            let tasks = {};
+            let taskCount = 0;
+            for(let i=0; i<teams.length; i++){
+                client.hmset('task:' + teams[i], {currentObjective: 0, taskId: '-1'}, (err, reply) => {
+                    tasks[teams[i]] = {currentObjective: 0, taskId: '-1'};
+                    taskCount++;
+                    console.log(taskCount == teams.length);
+                    if(taskCount == teams.length){
+                        callback({tasks: tasks});
+                    }
+                });
+            }
+        }else if(teams.length === 0){
+            callback({tasks: {}});
+        }
+    });
+}
+
+exports.setTask = function(client, teamId, taskId, callback){
+    client.hmset('task:' + teamId, {currentObjective: 0, taskId: taskId}, (err, reply) => {
+        callback(reply);
     });
 }

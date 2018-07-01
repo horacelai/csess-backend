@@ -8,5 +8,20 @@
         },
         "answer": "AAA",
         "score": 1000
+    },
+    "1": {
+        "type": "DISPLAY",
+        "display": {
+            "title": "I GO TO SCHOOL BY BUS",
+            "description": "你的任務就是要將蘑菇上的編碼找出"
+        },
+        "score": 500
+    },
+    "2": {
+        "type": "END",
+        "display": {
+            "title": "SUCCESS",
+            "description": "你的任務就是要將蘑菇上的編碼找出"
+        }
     }
 }
