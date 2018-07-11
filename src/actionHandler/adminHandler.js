@@ -49,6 +49,7 @@ const adminHandler = function(redisCilent, socket, action){
             if(reply == 0){
                 socket.emit('action', {type: 'ADMIN_CHANGE_SCORE', payload: {id: action.payload.id, score: action.payload.score}});
                 socket.to('ADMIN').emit('action', {type: 'ADMIN_CHANGE_SCORE', payload: {id: action.payload.id, score: action.payload.score}});
+                socket.to(action.payload.id).emit('action', {type: 'GAME_RETURN_SCORE', payload: {score: action.payload.score}});
             }
         });
     }else if(action.type == 'IO:ADMIN_GET_TEAM_LIST'){
@@ -140,6 +141,7 @@ const adminHandler = function(redisCilent, socket, action){
         });
     }else if(action.type == 'IO:ADMIN_GET_STAGES'){
         redisHelper.getStage(redisCilent, (reply)=>{
+            console.log(reply);
             if(reply){
                 let stages = _.keys(Mission);
                 socket.emit('action', {type: 'ADMIN_RETURN_STAGES', payload: {currentStage: reply, stages: stages}});
@@ -151,15 +153,15 @@ const adminHandler = function(redisCilent, socket, action){
                 redisHelper.resetTasks(redisCilent, (rep)=>{
                     let processedTask = {};
                     let totalTasks = _.size(rep.tasks);
+                    let t = {
+                        display: {
+                            title: "請等候接收指令",
+                            description: ""
+                        },
+                        type: 'END',
+                        taskId: task.taskId
+                    };
                     _.forEach(rep.tasks, (task, id)=>{
-                            let t = {
-                                display: {
-                                    title: "請等候接收指令",
-                                    description: ""
-                                },
-                                type: 'END',
-                                taskId: task.taskId
-                            };
                             processedTask[id] = t;
                     });
                     let mis;
@@ -170,6 +172,7 @@ const adminHandler = function(redisCilent, socket, action){
                     }
                     socket.emit('action', {type: 'ADMIN_RETURN_TASKS', payload: {currentStage: action.payload, tasks: processedTask, tasksList: mis}} );
                     socket.to('ADMIN').emit('action', {type: 'ADMIN_RETURN_TASKS', payload: {currentStage: action.payload, tasks: processedTask, tasksList: mis}} );
+                    socket.broadcast.emit('action', {type: 'GAME_RETURN_TASK', payload: { task: t }} );
                 })
             }
         });
@@ -184,6 +187,7 @@ const adminHandler = function(redisCilent, socket, action){
                     }
                     socket.emit('action', {type: 'ADMIN_UPDATE_TASK', payload: {teamId: action.payload.teamId, task: task } } );
                     socket.to('ADMIN').emit('action', {type: 'ADMIN_UPDATE_TASK', payload: {teamId: action.payload.teamId, task: task } } );
+                    socket.to(action.payload.teamId).emit('action', {type: 'GAME_RETURN_TASK', payload: { task: task } } );
                 });
             }
         })
@@ -198,6 +202,7 @@ const adminHandler = function(redisCilent, socket, action){
                     }
                     socket.emit('action', {type: 'ADMIN_UPDATE_TASK', payload: {teamId: action.payload.teamId, task: task } } );
                     socket.to('ADMIN').emit('action', {type: 'ADMIN_UPDATE_TASK', payload: {teamId: action.payload.teamId, task: task } } );
+                    socket.to(action.payload.teamId).emit('action', {type: 'GAME_RETURN_TASK', payload: { task: task } } );
                 });
             }
         })
@@ -210,6 +215,7 @@ const adminHandler = function(redisCilent, socket, action){
 
                     redisHelper.addTeamScore(redisCilent, action.payload.teamId, score, (rep)=>{
                         socket.to('ADMIN').emit('action', {type: 'ADMIN_CHANGE_SCORE', payload: {id: action.payload.teamId, score: rep}});
+                        socket.to(action.payload.teamId).emit('action', {type: 'GAME_RETURN_SCORE', payload: { score: rep } } );
                     });
 
                     let task = {
@@ -219,6 +225,7 @@ const adminHandler = function(redisCilent, socket, action){
                     }
                     socket.emit('action', {type: 'ADMIN_UPDATE_TASK', payload: {teamId: action.payload.teamId, task: task } } );
                     socket.to('ADMIN').emit('action', {type: 'ADMIN_UPDATE_TASK', payload: {teamId: action.payload.teamId, task: task } } );
+                    socket.to(action.payload.teamId).emit('action', {type: 'GAME_RETURN_TASK', payload: { task: task } } );
                 });
 
             }

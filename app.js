@@ -33,7 +33,7 @@ app.post('/login', function (req, res) {
 io.use((socket, next) => {
     const sessionid = socket.handshake.query.sessionId;
     redisHelper.checkSession(client, sessionid, (reply) => {
-        reply = 'admin'; //temp line
+        reply = 'hhhhhh'; //temp line
         if(reply){
             socket.request.user = reply;
             return next();

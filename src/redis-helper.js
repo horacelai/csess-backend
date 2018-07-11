@@ -92,7 +92,6 @@ exports.getPlayerDetails = function(client, playerId, callback){
 
 exports.getPlayerTeam = function(client, playerId, callback){
     client.hget('player:' + playerId, 'team', (err, reply) => {
-        console.log(reply);
         callback(reply);
     });
 }
@@ -110,7 +109,7 @@ exports.setPlayerRole = function(client, playerId, role, callback){
 }
 
 exports.getTeams = function(client, callback){
-    client.zrangebyscore('teams', '0', '+inf', 'WITHSCORES', (err, reply) =>{
+    client.zrevrangebyscore('teams', '+inf', '0', 'WITHSCORES', (err, reply) =>{
         callback(reply);
     });
 }
@@ -178,6 +177,13 @@ exports.getTasks = function(client, callback){
     });
 }
 
+exports.getTask = function(client, teamId, callback){
+    client.multi().get('stage')
+    .hgetall('task:' + teamId).exec((err, reply) => {
+        callback({stage: reply[0], task: reply[1]});
+    });
+}
+
 exports.nextTask = function(client, teamId, callback){
     client.HINCRBY('task:' + teamId, 'currentObjective', 1, (err, replies) => {
         client.hgetall('task:' + teamId, (err, reply)=>{
@@ -222,5 +228,14 @@ exports.setAuthMode = function(client, mode, callback){
 exports.getAuthMode = function(client, callback){
     client.get('auth', (err, reply) => {
         callback(reply);
+    });
+}
+
+exports.setTeamLock = function(client, team, callback){
+    let date = new Date();
+    let key = 'lock:' + team;
+    client.multi().setnx(key, date.getTime()).
+        expire(key, 5).exec((err, reply)=>{
+            callback(reply[0]);
     });
 }
