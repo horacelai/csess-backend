@@ -1,16 +1,22 @@
 exports.checkSession = function(client, sessionId, callback){
-    client.hget('session:' + sessionId, 'playerId' , (err, reply) => {
+    client.get('session:' + sessionId , (err, reply) => {
         callback(reply);
     });
 }
 
-exports.newSession = function(client, sessionId, sessionDetail, callback){
-    client.HMSET('session:' + sessionId, sessionDetail, (err, reply)=>{
+exports.newSession = function(client, sessionId, userId, callback){
+    client.set('session:' + sessionId, userId, (err, reply)=>{
         callback(reply);
     });
 }
 
-exports.playerExtist = function(cilent, playerId, callback){
+exports.removeSession = function(client, sessionId, callback){
+    client.del('session:' + sessionId, (err, reply)=>{
+        callback(reply);
+    });
+}
+
+exports.playerExtist = function(client, playerId, callback){
     client.SISMEMBER('players', playerId, (err, reply)=>{
         callback(reply == 1);
     })

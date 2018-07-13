@@ -1,6 +1,5 @@
-const app = require('express')();
-const server = require('http').Server(app);
-const io = require('socket.io')(server);
+const app = require('http').createServer();
+const io = require('socket.io')(app);
 
 const redis = require("redis");
 const client = redis.createClient({});
@@ -10,10 +9,11 @@ const redisAdapter = require('socket.io-redis');
 const fetchAction = require('./src/actionFetch');
 const redisHelper = require('./src/redis-helper');
 
+app.listen(8080);
+
 io.origins(['*:*']);
 io.adapter(redisAdapter({ pupClient: PubSubClient, subClient: PubSubClient }));
 
-server.listen(8080);
 
 client.on("error", function (err) {
   console.log("Error: " + err);
@@ -21,19 +21,10 @@ client.on("error", function (err) {
 
 console.log("Listening on host 8080");
 
-app.get('/', function (req, res) {
-    redisHelper.addPlayer(client, '123456', {team: '1'}, (reply) => {
-        res.send(reply);
-    });
-});
-app.post('/login', function (req, res) {
-  res.sendFile(__dirname + '/index.html');
-});
 
 io.use((socket, next) => {
     const sessionid = socket.handshake.query.sessionId;
     redisHelper.checkSession(client, sessionid, (reply) => {
-        reply = 'hhhhhh'; //temp line
         if(reply){
             socket.request.user = reply;
             return next();
@@ -44,15 +35,15 @@ io.use((socket, next) => {
 });
 
 io.on('connection', (socket) => {
-    if(socket.request.user){
-        redisHelper.getPlayerRole(client, socket.request.user, (reply)=>{
-            if(reply){
-                socket.join(reply);
-            }
-        });
-    }
-
     socket.on('action', (data) => {
+        if(socket.request.user){
+            redisHelper.getPlayerTeam(client, socket.request.user, (reply)=>{
+                if(reply){
+                    socket.join(reply);
+                }
+            });
+        }
+
         fetchAction(client, socket, data);
     });
 });

@@ -10,14 +10,25 @@
         "score": 1000
     },
     "1": {
-        "type": "DISPLAY",
+        "type": "ANSWER",
         "display": {
             "title": "I GO TO SCHOOL BY BUS",
             "description": "你的任務就是要將蘑菇上的編碼找出"
         },
+        "answer": "AAA",
         "score": 500
     },
     "2": {
+       "type": "LOCATION",
+       "display": {
+           "title": "LOCATION TASK",
+           "description": "你的任務就是要將蘑菇上的編碼找出"
+       },
+       "score": 500,
+       "latitude": 22.337483,
+       "longitude": 114.262971
+   },
+    "3": {
         "type": "END",
         "display": {
             "title": "SUCCESS",
