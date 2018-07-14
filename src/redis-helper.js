@@ -245,3 +245,45 @@ exports.setTeamLock = function(client, team, callback){
             callback(reply[0]);
     });
 }
+
+exports.addWhitelist = function(client, player, callback){
+    client.sadd('whitelist', player, (err, reply)=>{
+        callback(reply);
+    });
+}
+
+exports.removeWhitelist = function(client, player, callback){
+    client.SREM('whitelist', player, (err, reply)=>{
+        callback(reply);
+    });
+}
+
+exports.createPendingPlayer = function(client, pendingId, details, expireTimestemp, callback){
+    client.multi().HMSET('pending:' + pendingId, details).
+        EXPIREAT('pending:' + pendingId, expireTimestemp).
+        exec((err, reply)=>{
+            if(reply[0]){
+                callback(reply);
+            }
+        });
+}
+
+exports.getPendingPlayer = function(client, pendingId, callback){
+    client.multi().hgetall('pending:' + pendingId).
+        del('pending:' + pendingId).
+        exec((err, reply)=>{
+            if(reply[0]){
+                callback(reply[0]);
+            }
+        });
+}
+
+exports.setPendingSocketId = function(client, pendingId, socketId, callback){
+    client.HEXISTS('pending:' + pendingId, 'socketId', (err, exists)=>{
+        if(exists === 1){
+            client.HSET('pending:' + pendingId, 'socketId', socketId, (err, reply)=>{
+                callback(reply);
+            });
+        }
+    });
+}

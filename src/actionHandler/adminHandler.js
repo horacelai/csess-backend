@@ -1,6 +1,8 @@
 const redisHelper = require('../redis-helper');
 const _ = require('lodash/core');
 
+const nanoid = require('nanoid');
+
 const Mission = require('../missions/mission');
 
 const adminHandler = function(redisClient, socket, action){
@@ -104,7 +106,6 @@ const adminHandler = function(redisClient, socket, action){
                 let processedTask = {};
                 let totalTasks = _.size(tasks);
                 _.forEach(tasks, (task, id)=>{
-                    console.log(task);
                     if(stage === 'NONE' || task.taskId === '-1'){
                         let t = {
                             display: {
@@ -141,7 +142,6 @@ const adminHandler = function(redisClient, socket, action){
         });
     }else if(action.type == 'IO:ADMIN_GET_STAGES'){
         redisHelper.getStage(redisClient, (reply)=>{
-            console.log(reply);
             if(reply){
                 let stages = _.keys(Mission);
                 socket.emit('action', {type: 'ADMIN_RETURN_STAGES', payload: {currentStage: reply, stages: stages}});
@@ -243,6 +243,35 @@ const adminHandler = function(redisClient, socket, action){
                 socket.to('ADMIN').emit('action', {type: 'ADMIN_RETURN_AUTH_MODE', payload: action.payload});
             }
         });
+    }else if(action.type == 'IO:ADMIN_ADD_WISHLIST'){
+        redisHelper.playerExtist(redisClient, action.payload.playerid, (exists)=>{
+            if(exists){
+                redisHelper.addWhitelist(redisClient, action.payload.playerid, (reply)=>{
+                    if(reply === 1 && exists){
+                        socket.emit('action', {type: 'ADMIN_RETURN_ADD_WISHLIST', payload: action.payload.playerid});
+                    }
+                });
+            }
+        });
+    }else if(action.type == 'IO:ADMIN_ACCEPT_LOGIN'){
+        redisHelper.getPendingPlayer(redisClient, action.payload.pendingId, (pending)=>{
+            if(pending.playerId){
+                let playerId = pending.playerId;
+                let socketId = pending.socketId;
+
+                let sessionId = nanoid();
+                redisHelper.newSession(redisClient, sessionId, playerId, (reply)=>{
+                    if(reply){
+                        redisHelper.getPlayerDetails(redisClient, playerId, (datails)=>{
+                            socket.to(socketId).emit('action', {type: 'GAME_LOGIN_SUCCESS', payload: {sessionId: sessionId, role: datails.role.toLowerCase()}} );
+                            socket.emit('action', {type: 'ADMIN_LOGIN_RETURN_PLAYER', payload: datails});
+                        });
+                    }
+                });
+            }else{
+                socket.emit('action', {type: 'ADMIN_LOGIN_RETURN_PLAYER', payload: {username: '', role: '', team: ''}});
+            }
+        })
     }
 }
 
