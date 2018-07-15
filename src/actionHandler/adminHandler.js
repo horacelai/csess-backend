@@ -6,7 +6,6 @@ const nanoid = require('nanoid');
 const Mission = require('../missions/mission');
 
 const adminHandler = function(redisClient, socket, action){
-    console.log(action.type);
     if(action.type == 'IO:ADMIN_GET_TEAMS'){
         redisHelper.getTeams(redisClient, (reply)=>{
             let teams = {};
