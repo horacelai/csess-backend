@@ -4,7 +4,7 @@ var options = {
 	ca: fs.readFileSync('/etc/letsencrypt/live/chronicles.site/chain.pem')
 };
 
-const app = require('https').createServer();
+const app = require('https').createServer(options);
 const io = require('socket.io')(app);
 
 const redis = require("redis");
