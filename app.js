@@ -1,12 +1,4 @@
-fs = require('fs');
-
-var options = {
-	key: fs.readFileSync('/etc/letsencrypt/live/chronicles.site/privkey.pem'),
-	cert: fs.readFileSync('/etc/letsencrypt/live/chronicles.site/cert.pem'),
-	ca: fs.readFileSync('/etc/letsencrypt/live/chronicles.site/chain.pem')
-};
-
-const app = require('https').createServer(options);
+const app = require('http').createServer();
 const io = require('socket.io')(app);
 
 const redis = require("redis");
