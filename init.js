@@ -37,7 +37,7 @@ redisHelper.setStage(client, 'NONE', (reply)=>{
 
 });
 
-redisHelper.setAuthMode(client, 'OFF', (reply)=>{
-    console.log('Set auth mode to NONE.');
+redisHelper.setAuthMode(client, 'off', (reply)=>{
+    console.log('Set auth mode to off.');
     client.quit();
 });
