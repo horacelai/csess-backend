@@ -1,3 +1,5 @@
+fs = require('fs');
+
 var options = {
 	key: fs.readFileSync('/etc/letsencrypt/live/chronicles.site/privkey.pem'),
 	cert: fs.readFileSync('/etc/letsencrypt/live/chronicles.site/cert.pem'),
