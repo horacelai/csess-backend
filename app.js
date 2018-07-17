@@ -21,7 +21,7 @@ const redisAdapter = require('socket.io-redis');
 const fetchAction = require('./src/actionFetch');
 const redisHelper = require('./src/redis-helper');
 
-app.listen(4000);
+app.listen(4000 + process.env.NODE_APP_INSTANCE);
 
 io.origins(['*:*']);
 io.adapter(redisAdapter({ pupClient: PubSubClient, subClient: PubSubClient }));
