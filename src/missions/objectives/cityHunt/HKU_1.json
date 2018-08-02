@@ -1,0 +1,184 @@
+{
+    "0": {
+        "type": "LOCATION",
+        "display": {
+            "title": "前往HKU百周年花園,到達後以GPS解鎖之後的任務",
+            "description": "收到情報一個月前出現對抗Marik.it的組織,據報基地位於hku,請前往調查"
+        },
+        "latitude": 22.282929,
+        "longitude": 114.134006
+    },
+    "1": {
+        "type": "LEADER",
+        "display": {
+            "title": "Dem HKUST Engine beat",
+            "description": "先給他們一個下馬威"
+        },
+        "answer": "Submit Video to EXCO",
+        "score": 1500
+    },
+    "2": {
+
+        "type": "LEADER",
+        "display": {
+            "title": "派4位組仔女 各自 與 異性路人 擺出 CS 手勢合照",
+            "description": "多一個朋友好過多一個敵人"
+        },
+        "answer": "Submit Picture to EXCO",
+        "score": 1000
+    },
+    "3": {
+        "type": "LEADER",
+        "display": {
+            "title": "去HKU starbucks問hku...............st學生有冇折",
+            "description": "偽裝入門1010"
+        },
+        "score": 1000
+    },
+    "4": {
+        "type": "LEADER",
+        "display": {
+            "title": "在hku尋找孫中山銅像",
+            "description": "革命精神,薪火相傳"
+        },
+        "answer": "Submit Picture to EXCO",
+        "score": 500
+    },
+    "5": {
+        "type": "LOCATION",
+        "display": {
+            "title": "前往西灣河太安樓,到達後以GPS解鎖之後的任務",
+            "description": "西灣河為舊區，Marik.it都尚未滲透呢個地方。大家可以去休息下,補充體力,同埋做秘密訓練"
+        },
+        "latitude": 22.282929,
+        "longitude": 114.134006,
+        "score": 0
+    },
+    "6": {
+        "type": "LEADER",
+        "display": {
+            "title": "找2款街邊小吃，並拍下食物照片",
+            "description": "休息是為了走更遠的路"
+        },
+        "answer": "Submit Picture to EXCO",
+        "score": 1000
+    },
+    "7": {
+        "type": "LOCATION",
+        "display": {
+            "title": "去鰂魚涌公園",
+            "description": "唞足精神又係訓練嘅時候囉"
+        },
+        "latitude": 22.284357,
+        "longitude": 114.221453
+    },
+    "8": {
+        "type": "LEADER",
+        "display": {
+            "title": "決戰三分鐘------全組行石春路",
+            "description": "條路係艱辛,但勝在有一班同路人"
+        },
+        "score": 1000
+    },
+    "9": {
+        "type": "LEADER",
+        "display": {
+            "title": "決戰一分鐘------累計10下引體上升",
+            "description": "合作係致勝嘅關鍵"
+        },
+        "score": 1000
+    },
+    "10": {
+        "type": "LOCATION",
+        "display": {
+            "title": "前往太古城,到達後以GPS解鎖之後的任務",
+            "description": "Marik.it都尚未滲透太古城呢個地方。大家可以做秘密訓練,磨練自己嘅技巧"
+        },
+        "latitude": 22.286695,
+        "longitude": 114.217413
+    },
+    "11": {
+        "type": "ANSWER",
+        "display": {
+            "title": "CityPlaza - MALL HUNT",
+            "description": "憑住以下 6 張照片，找出以下 6 間舖頭的名字，並順序將每間舖頭英文名第 x 個字拼成一組密碼(存在的英文生字)，在app中提交（全細階）。範圍:{G/F~2/F}, 最後請將這 6 個英文字母順序合起來吧！"
+        },
+        "answer": "ToxicJ",
+        "score": 3500
+    },
+    "12": {
+        "type": "ANWSER",
+        "display": {
+            "title": "太古城溜冰場叫咩名?",
+            "description": "你的名字,關我咩事?"
+        },
+        "answer": "冰上皇宮",
+        "score": 500
+    },
+    "13": {
+        "type": "LEADER",
+        "display": {
+            "title": "溜冰pose合照",
+            "description": "試試你們的筋骨柔不柔軟"
+        },
+        "score": 500
+    },
+    "14": {
+        "type": "LEADER",
+        "display": {
+            "title": "Jumping_Gym夾公仔",
+            "description": "手眼協調,一擊即中"
+        },
+        "score": 1000
+    },
+    "15": {
+        "type": "LEADER",
+        "display": {
+            "title": "對太古城襌宗清泉念阿彌陀佛",
+            "description": "這是駭客們明文範定的傳統喔"
+        },
+        "score": 500
+    },
+    "16": {
+        "type": "LOCATION",
+        "display": {
+            "title": "前往TKO_Gateway,到達後以GPS解鎖之後的任務",
+            "description": "了解基地環境隨時進行補給"
+        },
+        "latitude": 22.317259,
+        "longitude": 114.266314
+    },
+    "17": {
+        "type": "ANSWER",
+        "display": {
+            "title": "FoodLane Smuki有幾多隻味?",
+            "description": "邊個話吃貨做唔到hacker!?"
+        },
+        "answer": "5",
+        "score": 500
+    },
+    "18": {
+        "type": "LEADER",
+        "display": {
+            "title": "M記矇眼食軟雪糕",
+            "description": "駭客們之間的默契也很重要"
+        },
+        "score": 1000
+    },
+    "19": {
+        "type": "ANSWER",
+        "display": {
+            "title": "與科大相鄰的高級別墅名稱為?",
+            "description": "繼續為組織效力就飛黃騰達啦!!"
+        },
+        "answer": "傲瀧",
+        "score": 500
+    },
+    "20": {
+        "type": "END",
+        "display": {
+            "title": "ALL CLEARED.",
+            "description": "很好。現在，請返回大本營"
+        }
+    }
+}

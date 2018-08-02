@@ -111,7 +111,7 @@ const gameHandler = function(redisClient, socket, action){
                         }
                     }else if(objective.type === 'LOCATION'){
                         let dis = distance(answer.longitude, answer.latitude, objective.longitude, objective.latitude);
-                        if(dis*1000 <= 100.0){
+                        if(dis*1000 <= 50.0){
                             redisHelper.setTeamLock(redisClient, team, (rep)=>{
                                 if(rep == 1){
                                     redisHelper.nextTask(redisClient, team, (reply)=>{
@@ -137,7 +137,7 @@ const gameHandler = function(redisClient, socket, action){
                                 }
                             });
                         }else{
-                            socket.emit('action', {type: 'GAME_RECIEVE_ERROR', payload: {error: "位置不正確，距離目標尚有 " + (dis*1000 - 100).toFixed(1) + " 米"}} );
+                            socket.emit('action', {type: 'GAME_RECIEVE_ERROR', payload: {error: "位置不正確，距離目標尚有 " + (dis*1000 - 50).toFixed(1) + " 米"}} );
                         }
                     }
 

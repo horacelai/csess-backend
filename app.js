@@ -17,11 +17,13 @@ const redis = require("redis");
 const client = redis.createClient({});
 const PubSubClient = redis.createClient({});
 const redisAdapter = require('socket.io-redis');
+const sticky = require('sticky-session');
 
 const fetchAction = require('./src/actionFetch');
 const redisHelper = require('./src/redis-helper');
 
-app.listen(4000 + process.env.NODE_APP_INSTANCE);
+const port = 4001 + (process.env.NODE_APP_INSTANCE ? parseInt(process.env.NODE_APP_INSTANCE, 10): 0);
+console.log("port: " + port);
 
 io.origins(['*:*']);
 io.adapter(redisAdapter({ pupClient: PubSubClient, subClient: PubSubClient }));
@@ -31,31 +33,37 @@ client.on("error", function (err) {
   console.log("Error: " + err);
 });
 
-console.log("Listening on host 8080");
-
-
-io.use((socket, next) => {
-    const sessionid = socket.handshake.query.sessionId;
-    redisHelper.checkSession(client, sessionid, (reply) => {
-        if(reply){
-            socket.request.user = reply;
+if (!sticky.listen(app, port)) {
+  app.once('listening', function() {
+    console.log("listening on port: " + port );
+  });
+} else {
+    io.use((socket, next) => {
+        const sessionid = socket.handshake.query.sessionId;
+        redisHelper.checkSession(client, sessionid, (reply) => {
+            if(reply){
+                socket.request.user = reply;
+                return next();
+            }else if(sessionid && !reply){
+                socket.emit('action', { type: 'GAME_LOGIN_FAIL', payload: {error: 'Login Fail' }});
+            }
             return next();
-        }
-        return next();
+        });
+        return next(new Error(''));
     });
-    return next(new Error(''));
-});
 
-io.on('connection', (socket) => {
-    socket.on('action', (data) => {
-        if(socket.request.user){
-            redisHelper.getPlayerTeam(client, socket.request.user, (reply)=>{
-                if(reply){
-                    socket.join(reply);
-                }
-            });
-        }
+    io.on('connection', (socket) => {
+        socket.on('action', (data) => {
+            if(socket.request.user){
+                redisHelper.getPlayerTeam(client, socket.request.user, (reply)=>{
+                    if(reply){
+                        socket.join(reply);
+                    }
+                });
+            }
 
-        fetchAction(client, socket, data);
+            fetchAction(client, socket, data);
+        });
     });
-});
+
+}

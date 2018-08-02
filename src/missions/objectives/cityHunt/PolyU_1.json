@@ -1,0 +1,177 @@
+{
+    "0": {
+        "type": "LOCATION",
+        "display": {
+            "title": "前往Mong Kok,到達後以GPS解鎖之後的任務",
+            "description": "旺角作為舊區，有很多的藏身之所，足以讓Marik.it秘密進行資料搜集的工作。"
+        },
+        "latitude": 22.319129,
+        "longitude": 114.170052
+    },
+    "1": {
+        "type": "ANSWER",
+        "display": {
+            "title": "西洋菜南街行人專區幾時成歷史(DD/MM/YY)?",
+            "description": "一切已成過去"
+        },
+        "answer": "29/07/18",
+        "score": 1000
+    },
+    "2": {
+        "type": "LEADER",
+        "display": {
+            "title": "譚仔口音落單(雞肉腩玉三小辣走芽)",
+            "description": "改變口音係偽裝嘅第一步,試試看吧"
+        },
+        "score": 1000
+    },
+    "3": {
+        "type": "LEADER",
+        "display": {
+            "title": "特辣魚蛋",
+            "description": "試着查查這區的資源吧！"
+        },
+        "score": 1000
+
+    },
+    "4": {
+        "type": "LEADER",
+        "display": {
+            "title": "MK合照",
+            "description": "趁青春留倩影----林牧時,2018"
+        },
+        "score": 1000
+    },
+    "5": {
+        "type": "ANSWER",
+        "display": {
+            "title": "豉油街究竟時有冇豉油呢?(Yes/No)",
+            "description": "良好嘅觀察能力是十分重要的一環。試試看。"
+        },
+        "answer": "yes",
+        "score": 1000
+    },
+    "6": {
+        "type": "LOCATION",
+        "display": {
+            "title": "前往PolyU,到達後以GPS解鎖之後的任務",
+            "description": "。我們在PolyU發現了M.A.R.S.的監察紀錄人員,你哋要吸引佢哋嘅注意力！去找他們吧！"
+        },
+        "latitude": 22.304503,
+        "longitude": 114.179567
+    },
+    "7": {
+        "type": "LEADER",
+        "display": {
+            "title": "張鑑泉紀念廣場砌字影相(HKUST)",
+            "description": "試試挑釁他們吧"
+        },
+        "score": 1000
+    },
+    "8": {
+        "type": "LEADER",
+        "display": {
+            "title": "去 Z can 試伏",
+            "description": "作為我們組織成員有一個強壯嘅腸胃係必需嘅"
+        },
+        "score": 1000
+    },
+    "9": {
+        "type": "LEADER",
+        "display": {
+            "title": "PolyU Clock Tower影相",
+            "description": "已成功吸引到他們注意力,繼續努力"
+        },
+        "answer": "Submit Video to EXCO",
+        "score": 1000
+
+    },
+    "10": {
+        "type": "LEADER",
+        "display": {
+            "title": "派4位組仔女各自與異性路人擺出 Friendzone 手勢合照",
+            "description": "每一個路人皆可能掌管M.A.R.S.的線眼，不要放過他們！"
+        },
+        "score": 1000
+    },
+    "11": {
+        "type": "LEADER",
+        "display": {
+            "title": "紅館前做空氣結他",
+            "description": "成功完成任務的慶祝"
+        },
+        "answer": "Submit Video to EXCO",
+        "score": 500
+    },
+    "12": {
+        "type": "LOCATION",
+        "display": {
+            "title": "前往灣仔,到達後以GPS解鎖之後的任務",
+            "description": "。我們在PolyU發現了M.A.R.S.的監察紀錄人員,你哋要吸引佢哋嘅注意力！去找他們吧！"
+        },
+        "latitude": 22.277416,
+        "longitude": 114.173222
+    },
+    "13": {
+        "type": "LEADER",
+        "display": {
+            "title": "修頓籃球場灌籃(可多於一人一起完成)",
+            "description": "合作係致勝嘅關鍵"
+        },
+        "answer": "Submit Video to EXCO",
+        "score": 1500
+    },
+    "14": {
+        "type": "LEADER",
+        "display": {
+            "title": "利東街人力車影相",
+            "description": "半斤八兩,做到隻積咁樣"
+        },
+        "answer": "Submit Video to EXCO",
+        "score": 1000
+    },
+    "15": {
+        "type": "ANSWER",
+        "display": {
+            "title": "利東街數下幾多隻肥仔",
+            "description": "在一次試驗大家的觀察力"
+        },
+        "answer": "6",
+        "score": 1000
+    },
+    "16": {
+        "type": "LOCATION",
+        "display": {
+            "title": "前往將軍澳Popcorn,到達後以GPS解鎖之後的任務",
+            "description": "經過咁耐嘅訓練大都成為獨當一面嘅黑客,但係大本營有人留有一題難題俾你去拆解"
+        },
+        "latitude": 22.307781,
+        "longitude": 114.259851
+    },
+    "17": {
+        "type": "ANSWER",
+        "display": {
+            "title": "Popcorn - MALL HUNT ",
+            "description": "憑住以下 6 張照片，找出以下 6 間舖頭的名字，並順序將每間舖頭英文名第 x 個字"
+        },
+        "answer": "outpool",
+        "score": 3500
+    },
+    "18": {
+        "type": "LEADER",
+        "display": {
+            "title": "尋找Velodrome",
+            "description": "Google會係你嘅好幫手"
+        },
+        "score": 500
+    },
+
+    "19": {
+        "type": "END",
+        "display": {
+            "title": "ALL CLEARED.",
+            "description": "很好。現在，請返回大本營"
+        }
+    }
+
+}
