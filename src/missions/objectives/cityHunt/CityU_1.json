@@ -1,142 +1,177 @@
 {
     "0": {
-        "type": "LOCATION",
-        "display": {
-            "title": "前往深水埗-黃金電腦中心，到達後以GPS解鎖之後的任務",
-            "description": "深水埗作為舊區，有很多的藏身之所，足以讓Marik.it秘密進行資料搜集的工作。"
-        },
-        "score": 500,
-        "latitude": 22.3317043,
-        "longitude": 114.1622881
+     "type": "LOCATION",
+     "display": {
+        "title": "位置：深水埗-黃金電腦中心" ,
+        "description" : ["到達後以GPS解鎖之後的任務 ", "深水埗作為舊區，有很多的藏身之所，足以讓Marik.it秘密進行資料搜集的工作。"]
+      },
+     "score": 500,
+     "latitude": 22.3317043,
+     "longitude": 114.1622881
 
     },
 
     "1": {
-        "type": "LEADER",
-        "display": {
-            "title": "全組在 黃金電腦中心 太鼓達人壁畫前擺出pose合照",
-            "description": "BE ONE WITH THE UNIVERSE. 這是老大最愛說的一句話。"
-        },
-        "score": 500
+     "type": "LEADER",
+     "display": {
+        "title": "位置：深水埗-黃金電腦中心",
+        "description":["全組在 黃金電腦中心 太鼓達人壁畫前擺出pose合照", "BE ONE WITH THE UNIVERSE. 這是老大最愛說的一句話。"]
+     },
+     "score": 500
     },
 
     "2": {
-        "type": "LEADER",
-        "display": {
-            "title": "在鴨寮街派出4位組仔女鴨仔跳10下，並拍下影片作證明。",
-            "description": "來點體能訓練啊。你不是以為駭客不需好身手吧？"
-        },
-        "score": 500
+     "type": "LEADER",
+     "display": {
+        "title": "位置：深水埗-鴨寮街",
+        "description":["派出4位組仔女鴨仔跳10下，並拍下影片作證明。","來點體能訓練啊。你不是以為駭客不需好身手吧？"]
+     },
+     "score": 500
     },
 
     "3": {
-        "type": "ANSWER",
-        "display": {
-            "title": "在西九龍中心 - 蘋果商場 找出合乎以下條件之物品，並拍下照片：1.可以食嘅  2.紅色  3.懶人專用",
-            "description": [
-                "掌握並運用情報是十分重要的一環。試試看。[答案只有4個中文字]",
-                "掌握並運用情報是十分重要的一環。試試看。[答案只有4個中文字]",
-                "img(https://csess.su.ust.hk/home/images/activities_thumb/107.jpg)"
-            ]
-        },
-        "answer": "懶人火鍋",
-        "score": 500
+     "type": "ANSWER",
+     "display": {
+       "title":"位置：西九龍中心 - 蘋果商場",
+       "description":["找出合乎以下條件之物品，並拍下照片：1.可以食嘅  2.紅色  3.懶人專用", "掌握並運用情報是十分重要的一環。試試看。[答案只有4個中文字]"]
+     },
+    "answer": "懶人火鍋",
+    "score": 500
     },
 
     "4": {
         "type": "ANSWER",
         "display": {
-            "title": "在西九龍中心 - 蘋果商場 任務：找出合乎以下條件之舖頭，並拍下照片：1.提供嘅服務可能會痛  2.作品有唔同形狀唔同顏色  3.一種鋪頭(答案格式：XX舖)",
-            "description": "再試一次吧。能夠精通此技將會為你帶來翻倍獎勵[答案只有3個中文字]"
+          "title":"位置：西九龍中心 - 蘋果商場",
+          "description":["找出合乎以下條件之舖頭，並拍下照片：1.提供嘅服務可能會痛  2.作品有唔同形狀唔同顏色  3.一種鋪頭(答案格式：XX舖)", "再試一次吧。能夠精通此技將會為你帶來翻倍獎勵[答案只有3個中文字]"]
         },
-        "answer": "紋身舖",
-        "score": 500
+       "answer": "紋身舖",
+       "score": 500
+       },
+    "5":{
+     "type":"LEADER",
+     "display": {
+        "title":"位置：福榮街",
+        "description":["任意玩具店中找出翻版LEGO，並拍下其logo", "分別真偽，不要被對手迷惑。這個LELE是什麼東西?"]
+     },
+     "score": 500
     },
 
-    "5": {
-        "type": "LEADER",
-        "display": {
-            "title": "在福榮街任意玩具店中找出翻版LEGO，並拍下其logo",
-            "description": "分別真偽，不要被對手迷惑。這個LELE是什麼東西?"
-        },
-        "score": 500
-    },
 
-    "6": {
-        "type": "LOCATION",
+    "6":{
+        "type":"LEADER",
         "display": {
-            "title": "前往香港城市大學，到達後以GPS解鎖之後的任務",
-            "description": "我們查到 M.A.R.S. 第二基地的地標位於九龍灣達之路附近之位置。交給你們了。"
-        },
-        "score": 1000,
-        "latitude": 22.336489,
-        "longitude": 114.174121
-    },
-
-    "7": {
-        "type": "LEADER",
-        "display": {
-            "title": "任務：找出四不像，全組與之合照一張",
-            "description": "駭客法則：魔鬼在細節之中"
+           "title":"位置：深水埗區",
+           "description":["找點街邊小食X2", "分別真偽，不入嚟科大冇啖好野食"]
         },
         "score": 1000
+       },
+
+
+    "7":{
+    "type":"LOCATION",
+    "display": {
+    "title":"前往香港城市大學",
+    "description":["到達後以GPS解鎖之後的任務", "我們查到 M.A.R.S. 第二基地的地標位於九龍灣達之路附近之位置。交給你們了。"]
+     },
+     "score":1000,
+     "latitude": 22.336489,
+     "longitude": 114.174121
     },
 
     "8": {
-        "type": "LEADER",
-        "display": {
-            "title": "任務：全組到城大任一canteen(建議前住AC1)唱mum mum歌",
-            "description": "服從指令是必須的。"
-        },
-        "score": 1000
+    "type":"LEADER",
+    "display":{
+        "title":"位置：城大四不像",
+        "description":["全組與四不像合照一張", "駭客法則：魔鬼在細節之中"]
+    },
+    "score":1000
     },
 
     "9": {
-        "type": "LEADER",
-        "display": {
-            "title": "任務：派4位組仔女 各自 與 異性路人 擺出 Friendzone 手勢合照",
-            "description": "每一個路人皆可能掌管M.A.R.S.的機密，不要放過他們！"
-        },
-        "score": 1000
+    "type":"LEADER",
+    "display":{
+        "title":"位置：城市大學飯堂",
+        "description":["全組到城大任一canteen(建議前住AC1)唱mum mum歌，並拍攝影片", "服從指令是必須的。"]
+     },
+    "score":1000
     },
 
     "10": {
-        "type": "ANSWER",
-        "display": {
-            "title": "又一城 - MALL HUNT - 憑住以下 7 張照片，找出以下 7 間舖頭的名字，並順序將每間舖頭英文名第 x 個字 拼成一組密碼(存在的英文生字)，在app中提交（全細階）。範圍:{LG1 ~ 2/F, 1/F 除外}",
-            "description": "1. 英文舖名第 1 個英文字 <img src=\"fv_1.jpg\"> 2. 英文舖名第 5 個英文字 <img src=\"fv_2.jpg\"> 3. 英文舖名第 3 個英文字 <img src=\"fv_3.jpg\"> 4. 英文舖名第 6 個英文字 <img src=\"fv_4.jpg\"> 5. 英文舖名第 2 個英文字 <img src=\"fv_5.jpg\"> 6. 英文舖名第 5 個英文字 <img src=\"fv_6.jpg\"> 7. 2/F, 英文舖名第 5 個英文字 <img src=\"fv_7.jpg\"> 最後請將這 7 個英文字母順序合起來吧！"
-        },
-        "answer": "tension",
-        "score": 4000
+    "type":"LEADER",
+    "display":{
+        "title":"位置：城大校舍範圍",
+        "description":["派4位組仔女 各自 與 異性路人 擺出 Friendzone 手勢合照", "每一個路人皆可能掌管M.A.R.S.的機密，不要放過他們！"]
     },
-
+    "score": 1000
+    },
     "11": {
-        "type": "LOCATION",
-        "display": {
-            "title": "前往彩虹地鐵站，到達後以GPS解鎖之後的任務",
-            "description": "大本營附近好像亦發現了M.A.R.S.的跡像，去調查一下吧！"
-        },
-        "score": 1500,
-        "latitude": 22.334130,
-        "longitude": 114.208556
+    "type":"LEADER",
+    "display":{
+        "title":"尋找城大舊logo",
+        "description":["派4位組仔女 各自 與 異性路人 擺出 Friendzone 手勢合照", "每一個路人皆可能掌管M.A.R.S.的機密，不要放過他們！"]
+    },
+    "score": 500
     },
 
-    "12": {
-        "type": "LEADER",
-        "display": {
-            "title": "在彩虹邨籃球場，全組拍下趣味合照一張",
-            "description": "老大小時候最愛來這裏玩了。不過我感覺到M.A.R.S.的蹤跡就在附近！請小心！"
-        },
-        "score": 1500
+"12":{
+"type":"ANSWER",
+"display":{
+    "title":"又一城 - MALL HUNT",
+    "description":["憑住以下 7 張照片，找出以下 7 間舖頭的名字，並順序將每間舖頭英文名第 x 個字 拼成一組密碼(存在的英文生字)，在app中提交（全細階）。範圍:{LG1 ~ 2/F, 1/F 除外}",
+        "1. 英文舖名第 1 個英文字", "img(image/fv_1.jpg)",
+        "2. 英文舖名第 5 個英文字", "img(image/fv_2.jpg)",
+        "3. 英文舖名第 3 個英文字", "img(image/fv_3.jpg)",
+        "4. 英文舖名第 6 個英文字", "img(image/fv_4.jpg)",
+        "5. 英文舖名第 2 個英文字", "img(image/fv_5.jpg)",
+        "6. 英文舖名第 5 個英文字", "img(image/fv_6.jpg)",
+        "7. 2/F, 英文舖名第 5 個英文字", "img(image/fv_7.jpg)",
+        "最後請將這 7 個英文字母順序合起來吧！"]
+},
+"answer": "tension",
+"score": 3500
+},
+"13": {
+    "type":"LEADER",
+    "display":{
+        "title":"位置：又一城地鐵站出口",
+        "description":["龜波氣功團體照", "集氣ヽ(*・ω・)ﾉ"]
     },
+    "score": 1000
+    },
+"14": {
+"type":"LOCATION",
+"display":{
+    "title":"前往彩虹地鐵站",
+    "description":["到達後以GPS解鎖之後的任務", "大本營附近好像亦發現了M.A.R.S.的跡像，去調查一下吧！"]
+},
+"latitude":22.334130,
+"longitude":114.208556
+},
+"15": {
+    "type":"LEADER",
+    "display":{
+        "title":"位置：彩虹站月台",
+        "description":["啞劇透明的牆並拍攝影片","沉默是金,新奇是橙"]
+    },
+    "score": 1000
+    },
+"16":{
+"type":"LEADER",
+"display":{
+    "title":"在彩虹邨籃球場，全組拍下趣味合照一張",
+    "description":"老大小時候最愛來這裏玩了。不過我感覺到M.A.R.S.的蹤跡就在附近！請小心！"
+},
+"score":1000
+},
 
-    "13": {
-        "type": "END",
-        "display": {
-            "title": "ALL CLEARED.",
-            "description": "很好。現在，請返回大本營"
-        }
+"17":{
+    "type":"END",
+    "display":{
+        "title":"ALL CLEARED.",
+        "description":"很好。現在，請返回大本營"
     }
+}
 
 
 }

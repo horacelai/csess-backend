@@ -271,6 +271,31 @@ const adminHandler = function(redisClient, socket, action){
                 socket.emit('action', {type: 'ADMIN_LOGIN_RETURN_PLAYER', payload: {username: '', role: '', team: ''}});
             }
         })
+    }else if(action.type == 'IO:ADMIN_GET_QR'){
+        redisHelper.getQRCodes(redisClient, (reply)=>{
+            let qrs = [];
+            let total = 0;
+            for(let i=0; i<reply.length; i+=2){
+                qrs[i/2] = {code: reply[i] , score: reply[i+1]};
+            }
+            socket.emit('action', {type: 'ADMIN_RETURN_QR', payload: { qr: qrs }} );
+        });
+    }else if(action.type == 'IO:ADMIN_ADD_QR'){
+        let qrid = "qr:" + nanoid();
+
+        redisHelper.addQRCode(redisClient, qrid, action.payload.score, (reply)=>{
+            if(reply){
+                redisHelper.getQRCodes(redisClient, (reply)=>{
+                    let qrs = [];
+                    let total = 0;
+                    for(let i=0; i<reply.length; i+=2){
+                        qrs[i/2] = {code: reply[i] , score: reply[i+1]};
+                    }
+                    socket.emit('action', {type: 'ADMIN_RETURN_QR', payload: { qr: qrs }} );
+                });
+            }
+
+        });
     }
 }
 

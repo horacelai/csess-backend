@@ -1,0 +1,16 @@
+{
+    "totalObjectives": 1,
+    "0": {
+        "type": "END",
+        "display": {
+            "title": "所有任務已經全部完成",
+            "description": [
+                "感謝你們的參與",
+                "相片將會稍後在 Facebook 及 Instagram 公佈",
+                "歡迎追蹤我們的 Instagram 及 Facebook",
+                "Instagram: @csess.ust",
+                "Facebook: @CSESSHKUSTSU"
+            ]
+        }
+    }
+}

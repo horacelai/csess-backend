@@ -1,0 +1,202 @@
+{
+
+    "0": {
+        "type": "LOCATION",
+        "display": {
+            "title": "前往HKU百周年花園,到達後以GPS解鎖之後的任務",
+            "description": "收到情報一個月前出現對抗Marik.it的組織,據報基地位於hku,請前往調查"
+        },
+        "latitude": 22.282929,
+        "longitude": 114.134006
+    },
+    "1": {
+        "type": "LEADER",
+        "display": {
+            "title": "Dem HKUST Engine beat",
+            "description": "先給他們一個下馬威"
+        },
+        "answer": "Submit Video to EXCO",
+        "score": 1000
+    },
+    "2": {
+        "type": "LEADER",
+        "display": {
+            "title": "百周年花園尼馬式插水",
+            "description": "演員的自我修養"
+        },
+        "score": 1000
+    },
+    "3": {
+
+        "type": "LEADER",
+        "display": {
+            "title": "派4位組仔女 各自 與 異性路人 擺出 CS 手勢合照",
+            "description": "多一個朋友好過多一個敵人"
+        },
+        "score": 1000
+    },
+    "4": {
+        "type": "LEADER",
+        "display": {
+            "title": "去香港大學許士芬地質博物館製造地震",
+            "description": "我嬲起上嚟,連我自己都驚呀"
+        },
+        "answer": "Submit Picture to EXCO",
+        "score": 500
+    },
+    "5": {
+        "type": "LEADER",
+        "display": {
+            "title": "在hku尋找孫中山銅像",
+            "description": "革命精神,薪火相傳"
+        },
+        "answer": "Submit Picture to EXCO",
+        "score": 500
+    },
+    "6": {
+        "type": "LOCATION",
+        "display": {
+            "title": "前往西灣河太安樓",
+            "description": "西灣河為舊區，Marik.it都尚未滲透呢個地方。大家可以去休息下,補充體力,同埋做秘密訓練,到達後以GPS解鎖之後的任務"
+        },
+        "latitude": 22.282929,
+        "longitude": 114.134006,
+        "score": 0
+    },
+    "7": {
+        "type": "LEADER",
+        "display": {
+            "title": "找2款街邊小吃，並拍下食物照片",
+            "description": "休息是為了走更遠的路"
+        },
+        "answer": "Submit Picture to EXCO",
+        "score": 1000
+    },
+    "8": {
+        "type": "LOCATION",
+        "display": {
+            "title": "去鰂魚涌公園",
+            "description": "唞足精神又係訓練嘅時候囉"
+        },
+        "latitude": 22.284357,
+        "longitude": 114.221453,
+        "score": 0
+    },
+    "9": {
+        "type": "LEADER",
+        "display": {
+            "title": "決戰三分鐘------全組行石春路",
+            "description": "條路係艱辛,但勝在有一班同路人"
+        },
+        "score": 1000
+    },
+    "10": {
+        "type": "LEADER",
+        "display": {
+            "title": "決戰一分鐘------累計10下引體上升",
+            "description": "合作係致勝嘅關鍵"
+        },
+        "score": 500
+    },
+    "11": {
+        "type": "LEADER",
+        "display": {
+            "title": "全組跳大媽舞",
+            "description": ""
+        },
+        "score": 1000
+    },
+    "12": {
+        "type": "LOCATION",
+        "display": {
+            "title": "前往太古城",
+            "description": "Marik.it都尚未滲透太古城呢個地方。大家可以做秘密訓練,磨練自己嘅技巧,到達後以GPS解鎖之後的任務"
+        },
+        "latitude": 22.286695,
+        "longtitude": 114.217413
+    },
+    "13": {
+        "type": "ANSWER",
+        "display": {
+            "title": "CityPlaza - MALL HUNT",
+            "description": ["憑住以下 6 張照片，找出以下 6 間舖頭的名字，並順序將每間舖頭英文名第 x 個字成一組密碼(存在的英文生字)，在app中提交（全細階）。範圍:{G/F~2/F}",
+                "1. 英文舖名第 1 個英文字", "img(image/cp_1.jpg)",
+                "2. 英文舖名第 2 個英文字", "img(image/cp_2.jpg)",
+                "3. 英文舖名第 4 個英文字", "img(image/cp_3.jpg)",
+                "4. 英文舖名第 3 個英文字", "img(image/cp_4.jpg)",
+                "5. 英文舖名第 12 個英文字", "img(image/cp_5.jpg)",
+                "6. 英文舖名第 1 個英文字", "img(image/cp_6.jpg)",
+                "最後請將這 6 個英文字母順序合起來吧！"
+            ]
+        },
+        "answer": "ToxicJ",
+        "score": 3500
+    },
+    "14": {
+        "type": "ANSWER",
+        "display": {
+            "title": "太古城溜冰場叫咩名?",
+            "description": "你的名字,關我咩事?"
+        },
+        "answer": "冰上皇宮",
+        "score": 500
+    },
+    "15": {
+        "type": "LEADER",
+        "display": {
+            "title": "溜冰pose合照",
+            "description": "試試你們的筋骨柔不柔軟"
+        },
+        "score": 1000
+    },
+    "16": {
+        "type": "LEADER",
+        "display": {
+            "title": "Jumping_Gym夾公仔",
+            "description": "手眼協調,一擊即中"
+        },
+        "score": 1000
+    },
+    "17": {
+        "type": "LOCATION",
+        "display": {
+            "title": "前往TKO_Gateway",
+            "description": "了解基地環境隨時進行補給,到達後以GPS解鎖之後的任務"
+        },
+        "latitude": 22.317259,
+        "longitude": 114.266314
+    },
+    "18": {
+        "type": "LEADER",
+        "display": {
+            "title": "M記矇眼食軟雪糕",
+            "description": "駭客們之間的默契也很重要"
+        },
+        "score": 1000
+    },
+    "19": {
+        "type": "LEADER",
+        "display": {
+            "title": "東港城--Muji叭係Bean bag 扮蛋黃哥",
+            "description": "Hea下啦科大人"
+        },
+        "score": 500
+    },
+
+    "20": {
+        "type": "ANSWER",
+        "display": {
+            "title": "與科大相鄰的高級別墅名稱為?",
+            "description": "繼續為組織效力就飛黃騰達啦!!"
+        },
+        "answer": "傲瀧",
+        "score": 500
+    },
+    "21": {
+        "type": "END",
+        "display": {
+            "title": "ALL CLEARED.",
+            "description": "很好。現在，請返回大本營"
+        }
+    }
+}

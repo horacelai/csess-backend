@@ -23,7 +23,6 @@ const fetchAction = require('./src/actionFetch');
 const redisHelper = require('./src/redis-helper');
 
 const port = 4001 + (process.env.NODE_APP_INSTANCE ? parseInt(process.env.NODE_APP_INSTANCE, 10): 0);
-console.log("port: " + port);
 
 io.origins(['*:*']);
 io.adapter(redisAdapter({ pupClient: PubSubClient, subClient: PubSubClient }));

@@ -103,15 +103,15 @@ const gameHandler = function(redisClient, socket, action){
                                         socket.emit('action', {type: 'GAME_RETURN_TASK', payload: {task: tt } } );
                                     });
                                 }else{
-                                    socket.emit('action', {type: 'GAME_RECIEVE_ERROR', payload: {error: "請稍候"}} );
+                                    socket.emit('action', {type: 'GAME_RECIEVE_MESSAGE', payload: {message: "請稍候"}} );
                                 }
                             });
                         }else{
-                            socket.emit('action', {type: 'GAME_RECIEVE_ERROR', payload: {error: "答案不正確"}} );
+                            socket.emit('action', {type: 'GAME_RECIEVE_MESSAGE', payload: {message: "答案不正確"}} );
                         }
                     }else if(objective.type === 'LOCATION'){
                         let dis = distance(answer.longitude, answer.latitude, objective.longitude, objective.latitude);
-                        if(dis*1000 <= 50.0){
+                        if(dis*1000 <= 100.0){
                             redisHelper.setTeamLock(redisClient, team, (rep)=>{
                                 if(rep == 1){
                                     redisHelper.nextTask(redisClient, team, (reply)=>{
@@ -133,15 +133,27 @@ const gameHandler = function(redisClient, socket, action){
                                         socket.emit('action', {type: 'GAME_RETURN_TASK', payload: {task: tt } } );
                                     });
                                 }else{
-                                    socket.emit('action', {type: 'GAME_RECIEVE_ERROR', payload: {error: "請稍候"}} );
+                                    socket.emit('action', {type: 'GAME_RECIEVE_MESSAGE', payload: {message: "請稍候"}} );
                                 }
                             });
                         }else{
-                            socket.emit('action', {type: 'GAME_RECIEVE_ERROR', payload: {error: "位置不正確，距離目標尚有 " + (dis*1000 - 50).toFixed(1) + " 米"}} );
+                            socket.emit('action', {type: 'GAME_RECIEVE_MESSAGE', payload: {message: "位置不正確，距離目標尚有 " + (dis*1000 - 100).toFixed(1) + " 米"}} );
                         }
+                    }else if(objective.type === 'QRHUNT'){
+                        redisHelper.getQRCode(redisClient, answer, (score)=>{
+                            if(score && score > 0){
+                                socket.emit('action', {type: 'GAME_RECIEVE_MESSAGE', payload: {message: "已成功取得 " + score + " 分"}} );
+
+                                redisHelper.addTeamScore(redisClient, team, score, (s)=>{
+                                    socket.to('ADMIN').emit('action', {type: 'ADMIN_CHANGE_SCORE', payload: {id: team, score: s}});
+                                    socket.to(team).emit('action', {type: 'GAME_RETURN_SCORE', payload: { score: s } } );
+                                    socket.emit('action', {type: 'GAME_RETURN_SCORE', payload: { score: s } } );
+                                });
+                            }else{
+                                socket.emit('action', {type: 'GAME_RECIEVE_MESSAGE', payload: {message: "此 QR 已被領取"}} );
+                            }
+                        });
                     }
-
-
                 });
             }
         });

@@ -207,7 +207,6 @@ exports.resetTasks = function(client, callback){
                 client.hmset('task:' + teams[i], {currentObjective: 0, taskId: '-1'}, (err, reply) => {
                     tasks[teams[i]] = {currentObjective: 0, taskId: '-1'};
                     taskCount++;
-                    console.log(taskCount == teams.length);
                     if(taskCount == teams.length){
                         callback({tasks: tasks});
                     }
@@ -285,5 +284,25 @@ exports.setPendingSocketId = function(client, pendingId, socketId, callback){
                 callback(reply);
             });
         }
+    });
+}
+
+exports.addQRCode = function(client, id, score, callback){
+    client.ZADD('UNCLAINED_QR', 'NX', score, id, (err, reply)=>{
+        callback(reply);
+    });
+}
+
+exports.getQRCode = function(client, id, callback){
+    client.multi().ZSCORE('UNCLAINED_QR', id).
+        ZREM('UNCLAINED_QR', id).
+        exec((err, reply) => {
+            callback(reply[0]);
+        });
+}
+
+exports.getQRCodes = function(client, callback){
+    client.zrevrangebyscore('UNCLAINED_QR', '+inf', '0', 'WITHSCORES', (err, reply) =>{
+        callback(reply);
     });
 }

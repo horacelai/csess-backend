@@ -1,0 +1,20 @@
+{
+    "totalObjectives": 2,
+    "0": {
+        "type": "QRHUNT",
+        "display": {
+            "title": "定向訓練",
+            "description": [
+                "尋找隱藏在校園內的QR Code",
+                "以下功能只適用於官方瀏覽器"
+            ]
+        }
+    },
+    "1": {
+        "type": "END",
+        "display": {
+            "title": "任務完成",
+            "description": "請返回總部接受下一步任務"
+        }
+    }
+}

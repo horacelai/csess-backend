@@ -1,0 +1,178 @@
+{
+    "0": {
+        "type": "LOCATION",
+        "display": {
+            "title": "前往PolyU,到達後以GPS解鎖之後的任務",
+            "description": "。我們在PolyU發現了M.A.R.S.的監察紀錄人員,你哋要吸引佢哋嘅注意力！去找他們吧！"
+        },
+        "latitude": 22.304503,
+        "longitude": 114.179567
+    },
+    "1": {
+        "type": "LEADER",
+        "display": {
+            "title": "PolyU Clock Tower砌字影相(HKUST)",
+            "description": "試試挑釁他們吧"
+        },
+        "score": 500
+    },
+    "2": {
+        "type": "LEADER",
+        "display": {
+            "title": "去 Z can 試伏",
+            "description": "作為我們組織成員有一個強壯嘅腸胃係必需嘅"
+        },
+        "score": 1000
+    },
+    "3": {
+        "type": "LEADER",
+        "display": {
+            "title": "香港理工大學唐炳源廣場做Poly掌上壓",
+            "description": "已成功吸引到他們注意力,繼續努力"
+        },
+        "score": 1000
+
+    },
+    "4": {
+        "type": "LEADER",
+        "display": {
+            "title": "派4位組仔女各自與異性路人擺出 Friendzone 手勢合照",
+            "description": "每一個路人皆可能掌管M.A.R.S.的線眼，不要放過他們"
+        },
+        "score": 1000
+    },
+    "5": {
+        "type": "LEADER",
+        "display": {
+            "title": "孫志新紀念廣場前做空氣結他",
+            "description": "成功完成任務的慶祝"
+        },
+        "score": 500
+    },
+    "6": {
+        "type": "LOCATION",
+        "display": {
+            "title": "前往香港文化中心,到達後以GPS解鎖之後的任務",
+            "description": "我哋排去尖東嘅特工而家俾人追蹤,希望你哋可以分散M.A.R.S.嘅注意力"
+        },
+        "latitude": 22.294175,
+        "longitude": 114.170891
+    },
+    "7": {
+        "type": "LEADER",
+        "display": {
+            "title": "跳開心舞",
+            "description": "有一樣野我比人地叻既就係我唔怕黑----客"
+        },
+        "score": 1000
+    },
+    "8": {
+        "type": "LEADER",
+        "display": {
+            "title": "香港太空館前唱[一飛沖天去一飛沖天去 小小穿梭機]",
+            "description": "大佬小時候最喜歡聽嘅歌,可惜時光荏再"
+        },
+        "score": 1000
+    },
+    "9": {
+        "type": "LEADER",
+        "display": {
+            "title": "星光大道李小龍pose合照",
+            "description": "有姿勢,冇實際,虛張聲勢"
+        },
+        "score": 500
+    },
+    "10": {
+        "type": "LEADER",
+        "display": {
+            "title": "搭天星小輪去中環",
+            "description": "即使喺香港出世都未必搭過"
+        },
+        "score": 500
+    },
+    "11": {
+        "type": "LOCATION",
+        "display": {
+            "title": "前往中環香港摩天輪,到達後以GPS解鎖之後的任務",
+            "description": "同伴上未完成交換情報,要繼續掩護佢哋分散M.A.R.S.嘅注意力"
+        },
+        "latitude": 22.285338,
+        "longitude": 114.161658
+    },
+    "12": {
+        "type": "ANSWER",
+        "display": {
+            "title": "香港摩天輪有幾多車廂?",
+            "description": "當生命似流連在摩天輪,幸福處隨時吻到星空"
+        },
+        "answer": "42",
+        "score": 500
+    },
+    "13": {
+        "type": "LEADER",
+        "display": {
+            "title": "玩三個 Summer Fest 中環夏誌2018加大碼充氣遊戲",
+            "description": "休息是為了走更遠的路"
+        },
+        "score": 1500
+    },
+    "14": {
+        "type": "LEADER",
+        "display": {
+            "title": "同busking嘅人合照",
+            "description": "Busking, Busking,冇時停!!"
+        },
+        "score": 1000
+    },
+
+    "15": {
+        "type": "LEADER",
+        "display": {
+            "title": "對海大嗌我要過三爆四",
+            "description": "這是駭客們的傳統,信不信由你"
+        },
+        "score": 1000
+    },
+    "16": {
+        "type": "LOCATION",
+        "display": {
+            "title": "前往將軍澳 Jockey_Club_Hall,到達後以GPS解鎖之後的任務",
+            "description": "經過咁耐嘅訓練大都成為獨當一面嘅黑客,返去大本營分部畀啲人認識下你哋"
+        },
+        "latitude": 22.309730,
+        "longitude": 114.258271
+    },
+    "17": {
+        "type": "LEADER",
+        "display": {
+            "title": "Jockey_Club_Hall Dem CS Beat",
+            "description": "宣示新力軍的到來"
+        },
+        "score": 500
+    },
+    "18": {
+        "type": "ANSWER",
+        "display": {
+            "title": "Popcorn - MALL HUNT ",
+            "description": ["憑住以下 6 張照片，找出以下 6 間舖頭的名字，並順序將每間舖頭英文名第 x 個字拼成一組密碼(存在的英文生字)，在app中提交（全細階）。範圍:{G/F - 1/F}",
+                "1. 英文舖名第 1 個英文字", "img(image/pp_1.jpg)",
+                "2. 英文舖名第 5 個英文字", "img(image/pp_2.jpg)",
+                "3. 英文舖名第 3 個英文字", "img(image/pp_3.jpg)",
+                "4. 英文舖名第 6 個英文字", "img(image/pp_4.jpg)",
+                "5. 英文舖名第 2 個英文字", "img(image/pp_5.jpg)",
+                "6. 英文舖名第 5 個英文字", "img(image/pp_6.jpg)",
+                "最後請將這 6 個英文字母順序合起來吧！"
+            ]
+        },
+        "answer": "outpool",
+        "score": 3500
+    },
+    "19": {
+        "type": "END",
+        "display": {
+            "title": "ALL CLEARED.",
+            "description": "很好。現在，請返回大本營"
+        }
+    }
+
+}

@@ -1,0 +1,157 @@
+{
+  "totalObjectives": 14,
+  "0":{
+    "type": "ANSWER",
+    "display": {
+      "title": "Location: Computer Laboratory",
+      "description": "情報指出，Computer Laboratory已被安裝炸彈，請快速支援"
+    },
+    "answer": "decode",
+    "score": 0
+  },
+  "1":{
+    "type": "ANSWER",
+    "display": {
+      "title": "加密炸彈",
+      "description":
+      [
+        "請於10分鐘之內，將以下訊息解碼︰",
+        "100 109 57 51 101 105 119 103 89 87 57 109 101 83 53 51 97 67 52 61",
+        "Useful information:",
+        "Base64: https://www.base64decode.org/",
+        "Ascii: https://www.browserling.com/tools/ascii-to-text",
+        "Caesar Cipher: https://www.dcode.fr/caesar-cipher",
+        "Affine Cipher: http://rumkin.com/tools/cipher/affine.php",
+        "URL: https://meyerweb.com/eric/tools/dencoder/",
+        "Lower Case"]
+    },
+    "answer": "hail, mark.it.",
+    "score": 1500
+  },
+  "2":{
+    "type": "ANSWER",
+    "display": {
+      "title": "Location: CS Common Room",
+      "description": "CS Common Room(2501)已發現炸彈，要求立即增援。"
+    },
+    "answer": "findTheDifference",
+    "score": 0
+  },
+  "3":{
+    "type": "LEADER",
+    "display": {
+      "title": "同胞勿近",
+      "description": [
+        "組仔女有一分鐘時間觀察照片",
+        "然後需要到CS Common (2466)找出不同之處，限時兩分鐘",
+        "你需要答對全部不同之處才算完成",
+        "組仔女有三次機會（一分鐘觀察+兩分鐘找不同為一次機會）。",
+        "一旦作弊，炸彈將會馬上爆炸。"
+      ]
+    },
+    "score": 0
+  },
+  "4":{
+    "type": "ANSWER",
+    "display": {
+      "title": "Location: E2I (Engine Common Room)",
+      "description": "請求︰E2I (Engine Common Room)發現壓力炸彈，需要更多人員支援。請求已被許可。"
+    },
+    "answer": "BATTLE",
+    "score": 0
+  },
+  "5":{
+    "type": "LEADER",
+    "display": {
+      "title": "壓力炸彈",
+      "description": "皇王撲克"
+    },
+    "score": 0
+  },
+  "6":{
+    "type": "ANSWER",
+    "display": {
+      "title": "Location: 蘑菇",
+      "description": "在蘑菇發現炸彈，請求支援。"
+    },
+    "answer": "ropeSkipping",
+    "score": 0
+  },
+  "7":{
+    "type": "LEADER",
+    "display": {
+      "title": "跳彈 Part 1",
+      "description": [
+        "由組爸媽甩繩，每名組仔女需要入繩跳2下，然後出繩。",
+        "如果組仔女並不會入繩，只需要原地開始跳5下繩即可。"
+      ]
+    },
+    "score": 500
+  },
+  "8":{
+    "type": "LEADER",
+    "display":{
+      "title": "跳彈 Part 2",
+      "description": [
+        "由組爸媽甩繩，組仔女分成兩組，在繩內跳每組人數X5下。",
+        "每名組仔女都必須至少跳10下。限時為人數X20秒。"
+      ]
+    },
+    "score": 1500
+  },
+  "9":{
+    "type": "ANSWER",
+    "display": {
+      "title": "Location: LG7 草地",
+      "description": "LG7 草地發現大量炸彈，未被啟動，請求人員協助運輸，用作分析。"
+    },
+    "answer": "START",
+    "score": 0
+  },
+  "10":{
+    "type": "LEADER",
+    "display": {
+      "title": "炸彈運輸極有限公司",
+      "description": [
+        "搶旗遊戲",
+        "兩組站在起跑點並排成一直線。",
+        "兩組中間放有一支旗",
+        "兩組隊頭的組仔女需要到中間奪旗，並跑回自己隊頭，即得一分。",
+        "如跑者被拍肩膀/手臂，需要返回隊尾並由下一位組仔女頂上。",
+        "5分鐘內，得分高者獲勝。"
+      ]
+    },
+    "score": 0
+  },
+  "11":{
+    "type": "ANSWER",
+    "display": {
+      "title": "Location: Concourse",
+      "description": "報告︰Concourse發現疑似炸彈，尚未能確定型號，要求人員帶同裝備支援。"
+    },
+    "answer": "2",
+    "score": 0
+  },
+  "12":{
+    "type": "LEADER",
+    "display": {
+      "title": "張力炸彈",
+      "description": [
+        "組仔女分成兩組",
+        "一組站於LT-A與LT-B之間，為A組",
+        "另一組站於 Café Express對出空地，為B組",
+        "A組需要在不用語言之下，向B組提供提示，讓B組估出答案。",
+        "5分鐘後兩組交換",
+        "每個正確答案給予300BYTES獎勵"
+      ]
+    },
+    "score": 0
+  },
+  "13":{
+    "type": "END",
+    "display": {
+      "title": "任務結束",
+      "description": "請到Common 1+2 稍事休息"
+    }
+  }
+}

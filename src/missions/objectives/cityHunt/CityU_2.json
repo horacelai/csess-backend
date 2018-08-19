@@ -1,174 +1,184 @@
 {
-"0":{
-    "type": "LOCATION",
-    "display": {
-       "title": "前往油麻地紅磚屋，到達後以GPS解鎖之後的任務" ,
-       "description" : "油麻地作為鬧市，能讓Marik.it高效和便利地存取個人資料。"
-     },
-    "score": 500,
-    "latitude": 22.3123412,
-    "longitude": 114.1691058
-},
-
-"1": {
-    "type": "LEADER",
-    "display": {
-       "title": "全組在紅磚屋前擺出mario jump pose合照",
-       "description":"不覺得這個地方似曾相識嗎？"
-    },
-    "score": 500
-   },
-
-"2": {
-    "type": "LEADER",
-    "display": {
-       "title": "全組在油麻地戲院擺出做大戲的pose，合照一張。",
-       "description":"駭客法則：偽裝術"
-    },
-    "score": 500
-   },
-
-"3": {
-    "type": "ANSWER",
-    "display": {
-       "title": "在油麻地果欄找到符合以下條件之水果：來自日本, CS Soc顏色 ,漿果類果實(把水果名字打出來吧！)",
-       "description":"掌握並運用情報是十分重要的一環。試試看。[答案只有4個中文字]"
-    },
-    "answer":"巨峰提子",
-    "score": 500
-   },
-
-"4": {
-    "type": "ANSWER",
-    "display": {
-       "title": "在油麻地果欄找到符合以下條件之水果：來自泰國，白色汁液/硬殼，熱帶果實(把水果名字打出來吧！)",
-       "description":"再試一次吧。能夠精通此技將會為你帶來翻倍獎勵[答案只有2個中文字]"
-    },
-    "answer":"椰皇",
-    "score": 1000
-   },
-
-"5": {
-    "type": "LEADER",
-    "display": {
-       "title": "全組在油麻地天后廟許願，並大聲叫出：我要過三爆四！，並拍攝短片。",
-       "description":"這是駭客們明文範定的傳統喔，呵呵！找不到是沒關係的，聽我說的就好。"
-    },
-    "score": 1000
-   },
-
-
-"6": {
-    "type": "LOCATION",
-    "display": {
-       "title": "前往深水埗-黃金電腦中心，到達後以GPS解鎖之後的任務" ,
-       "description" : "深水埗資源補給豐富，Marik.it定必加以利用這個地方。我們在黃金電腦中心發現了他們的行蹤！去找他們吧！"
-     },
-    "score": 500,
-    "latitude": 22.3317043,
-    "longitude": 114.1622881
-   },
-
-"7": {
-    "type": "LEADER",
-    "display": {
-       "title": "全組在黃金電腦中心太鼓達人壁畫前擺出pose合照",
-       "description":"BE ONE WITH THE UNIVERSE. 這是老大最愛說的一句話。"
-    },
-    "score": 1000
-   },
-
-"8": {
-    "type": "LEADER",
-    "display": {
-       "title": "找2款街邊小吃，並拍下食物照片 - 如果是地區馳名的食品會有分數加乘！",
-       "description":"試着查查這區的資源吧！"
-    },
-    "score": 1000
-   },
-
-"9": {
-    "type": "LEADER",
-    "display": {
-       "title": "在鴨寮街派出4位組仔女鴨仔跳10下，並拍下影片作證明。",
-       "description":"來點體能訓練啊。你不是以為駭客不需好身手吧？"
-    },
-    "score": 1000
-   },
-
-"10":{
-    "type":"LEADER",
-    "display": {
-       "title":"在福榮街任意玩具店中找出翻版LEGO，並拍下其logo",
-       "description":"分別真偽，不要被對手迷惑。這個LELE是什麼東西?"
-    },
-    "score": 500
-   },
-
-"11":{
-    "type":"LOCATION",
-    "display": {
-    "title":"前往香港城市大學，到達後以GPS解鎖之後的任務",
-    "description":"我們查到 M.A.R.S. 第二基地的地標位於九龍灣達之路附近之位置。交給你們了。"
-     },
-     "score":1000,
-     "latitude": 22.336489,
-     "longitude": 114.174121
-    },
-
-"12": {
-        "type":"LEADER",
-        "display":{
-            "title":"任務：找出四不像，全組與之合照一張",
-            "description":"駭客法則：魔鬼在細節之中。"
+    "0": {
+        "type": "LOCATION",
+        "display": {
+            "title": "前往：油麻地紅磚屋",
+            "description": ["到達後以GPS解鎖之後的任務", "油麻地作為鬧市，能讓Marik.it高效和便利地存取個人資料。"]
         },
-        "score":1000
+        "score": 500,
+        "latitude": 22.3123412,
+        "longitude": 114.1691058
+    },
+
+    "1": {
+        "type": "LEADER",
+        "display": {
+            "title": "位置：油麻地紅磚屋",
+            "description": ["全組在紅磚屋前擺出猿人進化史合照", "不覺得這個地方似曾相識嗎？"]
         },
+        "score": 1000
+    },
 
-"13": {
-        "type":"LEADER",
-        "display":{
-            "title":"任務：找4位組仔女在紅色大門前，一邊跳躍，一邊說：「我彈出又彈入呀，打我呀笨！」",
-            "description":"服從指令是必須的。"
+    "2": {
+        "type": "LEADER",
+        "display": {
+            "title": "位置：油麻地戲院",
+            "description": ["全組在油麻地戲院擺出做大戲的pose，合照一張。", "駭客法則：偽裝術"]
         },
-        "score":1000
+        "score": 500
+    },
+
+    "3": {
+        "type": "ANSWER",
+        "display": {
+            "title": "位置：油麻地果欄",
+            "description": ["找到符合以下條件之水果：來自日本, CS Soc顏色 ,漿果類果實(把水果名字打出來吧！)", "掌握並運用情報是十分重要的一環。試試看。[答案只有4個中文字]"]
         },
+        "answer": "巨峰提子",
+        "score": 500
+    },
 
-"14": {
-        "type":"LEADER",
-            "display":{
-                "title":"任務：派4位組仔女 各自 與 異性路人 擺出 Friendzone 手勢合照",
-                "description":"每一個路人皆可能掌管M.A.R.S.的機密，不要放過他們！"
-            },
-            "score": 1000
-            },
+    "4": {
+        "type": "ANSWER",
+        "display": {
+            "title": "位置：油麻地果欄",
+            "description": ["找到符合以下條件之水果：帶刺的，有強烈香味，熱帶果實(把水果名字打出來吧！)", "再試一次吧。能夠精通此技將會為你帶來翻倍獎勵[答案只有2個中文字]"]
+        },
+        "answer": "榴槤",
+        "score": 500
+    },
 
-"15":{
-        "type":"ANSWER",
-                "display":{
-                    "title":"問題：請問哪個港鐵站出口最接近鑽石山Uniqlo 和 天仁茗茶？ 如答案是A0，請輸入A0(當然這不是答案啦~)",
-                    "description":"駭客法則：了解基地附近之地理環境。來熱身吧！"
-                },
-                "answer": "C2",
-                "score": 500
-                },
+    "5": {
+        "type": "ANSWER",
+        "display": {
+            "title": "位置：油麻地果欄",
+            "description": ["在油麻地果欄找到符合以下條件之水果：來自泰國，白色汁液/硬殼，熱帶果實(把水果名字打出來吧！)", "再試一次吧。能夠精通此技將會為你帶來翻倍獎勵[答案只有2個中文字]"]
+        },
+        "answer": "椰皇",
+        "score": 500
+    },
 
-"16":{
-     "type":"ANSWER",
-        "display":{
-                "title":"荷李活廣場 - MALL HUNT - 憑住以下 6 張照片，找出以下 6 間舖頭的名字，並順序將每間舖頭英文名第 x 個字 拼成一組密碼(存在的英文生字)，在app中提交（全細階）。範圍:{1/F - 3/F}",
-                "description":"1. 英文舖名第 10 個英文字 <img src=\"dh_1.jpg\"> 2. 英文舖名第 5 個英文字 <img src=\"dh_2.jpg\"> 3. 英文舖名第 7 個英文字 <img src=\"dh_3.jpg\"> 4. 英文舖名第 2 個英文字 <img src=\"dh_4.jpg\"> 5. 英文舖名第 6 個英文字 <img src=\"dh_5.jpg\"> 6. 英文舖名第 4 個英文字 <img src=\"dh_6.jpg\"> 最後請將這 6 個英文字母順序合起來吧！"
-                },
-                "answer": "stress",
-                "score": 2500
-                },
+    "6": {
+        "type": "LEADER",
+        "display": {
+            "title": "位置：油麻地天后廟",
+            "description": ["全組在油麻地天后廟許願，並拍攝照片。", "這是駭客們明文範定的傳統喔，呵呵！找不到是沒關係的，聽我說的就好。"]
+        },
+        "score": 1000
+    },
 
+    "7": {
+        "type": "LOCATION",
+        "display": {
+            "title": "前往Mong Kok,到達後以GPS解鎖之後的任務",
+            "description": "旺角作為舊區，有很多的藏身之所，足以讓Marik.it秘密進行資料搜集的工作。"
+        },
+        "latitude": 22.319129,
+        "longitude": 114.170052
+    },
+    "8": {
+        "type": "LEADER",
+        "display": {
+            "title": "位置：旺角範圍",
+            "description": ["譚仔口音落單(雞肉腩肉三小辣走芽)", "改變口音係偽裝嘅第一步,試試看吧"]
+        },
+        "score": 1000
+    },
+    "9": {
+        "type": "LEADER",
+        "display": {
+            "title": "位置：旺角範圍",
+            "description": ["試下臭豆腐", "試着查查這區的資源吧！"]
+        },
+        "score": 500
+    },
+    "10": {
+        "type": "LEADER",
+        "display": {
+            "title": "位置：旺角範圍",
+            "description": ["MK黑口罩合照", "趁青春留倩影----林牧時,2018"]
+        },
+        "score": 1000
+    },
+    "11": {
+        "type": "LEADER",
+        "display": {
+            "title": "位置：T.O.P",
+            "description": ["天台花園大叫我係要成為爆四學霸..嘅男人"]
+        },
+        "score": 1000
+    },
+    "12": {
+        "type": "LOCATION",
+        "display": {
+            "title": "前往香港城市大學，到達後以GPS解鎖之後的任務",
+            "description": ["我們查到 M.A.R.S. 第二基地的地標位於九龍灣達之路附近之位置。交給你們了。"]
+        },
+        "score": 1000,
+        "latitude": 22.336489,
+        "longitude": 114.174121
+    },
 
-"17":{
-    "type":"END",
-    "display":{
-        "title":"ALL CLEARED.",
-        "description":"很好。現在，請返回大本營"
+    "13": {
+        "type": "LEADER",
+        "display": {
+            "title": "位置：城大四不像",
+            "description": ["找出四不像，全組與之合照一張", "駭客法則：魔鬼在細節之中。"]
+        },
+        "score": 1000
+    },
+
+    "14": {
+        "type": "LEADER",
+        "display": {
+            "title": "位置：城大紅門",
+            "description": ["找4位組仔女在紅色大門前，一邊跳躍，一邊說：「我彈出又彈入呀，打我呀笨！」", "服從指令是必須的。"]
+        },
+        "score": 1000
+    },
+
+    "15": {
+        "type": "LEADER",
+        "display": {
+            "title": "位置：城大校舍",
+            "description": ["派4位組仔女 各自 與 異性路人 擺出 Friendzone 手勢合照", "每一個路人皆可能掌管M.A.R.S.的機密，不要放過他們！"]
+        },
+        "score": 1000
+    },
+
+    "16": {
+        "type": "ANSWER",
+        "display": {
+            "title": "回答以下問題",
+            "description": ["請問哪個港鐵站出口最接近鑽石山Uniqlo 和 天仁茗茶？ 如答案是A0，請輸入A0(當然這不是答案啦~)", "駭客法則：了解基地附近之地理環境。來熱身吧！"]
+        },
+        "answer": "C2",
+        "score": 500
+    },
+
+    "17": {
+        "type": "ANSWER",
+        "display": {
+            "title": "荷李活廣場 - MALL HUNT",
+            "description": [
+                "憑住以下 6 張照片，找出以下 6 間舖頭的名字，並順序將每間舖頭英文名第 x 個字 拼成一組密碼(存在的英文生字)，在app中提交（全細階）。範圍:{1/F - 3/F}",
+                "1. 英文舖名第 10 個英文字", "img(image/dh_1.jpg)",
+                "2. 英文舖名第 5 個英文字", "img(image/dh_2.jpg)",
+                "3. 英文舖名第 7 個英文字", "img(image/dh_3.jpg)",
+                "4. 英文舖名第 2 個英文字", "img(image/dh_4.jpg)",
+                "5. 英文舖名第 6 個英文字", "img(image/dh_5.jpg)",
+                "6. 英文舖名第 4 個英文字", "img(image/dh_6.jpg)",
+                "最後請將這 6 個英文字母順序合起來吧！"
+            ]
+        },
+        "answer": "stress",
+        "score": 3500
+    },
+    "18": {
+        "type": "END",
+        "display": {
+            "title": "ALL CLEARED.",
+            "description": "很好。現在，請返回大本營"
         }
     }
 

@@ -9,7 +9,10 @@ const fetchAction = function(redisCilent, socket, action){
 
     if(socket.request.user){
         redisHelper.getPlayerRole(redisCilent, socket.request.user, (role)=>{
-            if(!role) return;
+            if(!role){
+                socket.emit('action', { type: 'GAME_LOGIN_FAIL', payload: {error: 'Login Fail' }});
+                return;
+            };
             if(action.type.startsWith('IO:ADMIN_') && role == 'ADMIN'){
                 // isAdmin
                 adminHandler(redisCilent, socket, action);
