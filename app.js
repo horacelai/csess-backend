@@ -1,15 +1,7 @@
-var https = require('https');
+var https = require('http');
 var fs = require('fs');
 
-const privateKey = fs.readFileSync('/etc/letsencrypt/live/chronicles.site/privkey.pem', 'utf8');
-const certificate = fs.readFileSync('/etc/letsencrypt/live/chronicles.site/cert.pem', 'utf8');
-const ca = fs.readFileSync('/etc/letsencrypt/live/chronicles.site/chain.pem', 'utf8');
-
-const app = https.createServer({
-    key: privateKey,
-	cert: certificate,
-	ca: ca
-});
+const app = https.createServer();
 
 const io = require('socket.io')(app);
 
@@ -22,7 +14,7 @@ const sticky = require('sticky-session');
 const fetchAction = require('./src/actionFetch');
 const redisHelper = require('./src/redis-helper');
 
-const port = 4001 + (process.env.NODE_APP_INSTANCE ? parseInt(process.env.NODE_APP_INSTANCE, 10): 0);
+const port = 8080 + (process.env.NODE_APP_INSTANCE ? parseInt(process.env.NODE_APP_INSTANCE, 10): 0);
 
 io.origins(['*:*']);
 io.adapter(redisAdapter({ pupClient: PubSubClient, subClient: PubSubClient }));
