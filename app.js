@@ -7,6 +7,11 @@ const io = require('socket.io')(app);
 
 const redis = require("redis");
 const client = redis.createClient({});
+
+if(process.env.NODE_ENV == 'dev'){
+    
+}
+
 const PubSubClient = redis.createClient({});
 const redisAdapter = require('socket.io-redis');
 const sticky = require('sticky-session');
