@@ -26,7 +26,7 @@ sudo apt-get install nginx
 
 設定防火牆
 ```
-sudo ufw allow &#39;Nginx Full&#39;
+sudo ufw allow 'Nginx Full'
 ```
 
 檢查 Nginx 是否安裝正常
@@ -41,12 +41,37 @@ sudo vi /etc/nging/nginx.conf
 
 加入 http 內以下代碼：
 ```
-upstream io\_nodes {           ip\_hash;           server 127.0.0.1:8081;           server 127.0.0.1:8082;           server 127.0.0.1:8083;           server 127.0.0.1:8084;}server {            listen 4000;            server\_name csocamp.fun;            location / {                proxy\_set\_header Upgrade $http\_upgrade;                proxy\_set\_header Connection &quot;upgrade&quot;;                proxy\_set\_header X-Forwarded-For $proxy\_add\_x\_forwarded\_for;                proxy\_set\_header Host $host;                proxy\_http\_version 1.1;                proxy\_pass http://io\_nodes;}
+upstream io_nodes {  
+    ip_hash;           
+    server 127.0.0.1:8081;           
+    server 127.0.0.1:8082;          
+    server 127.0.0.1:8083;           
+    server 127.0.0.1:8084;
+}
+
+server {    
+    listen 4000;
+    server_name csocamp.fun;
+
+    location / {                
+        proxy_set_header Upgrade $http_upgrade;                
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;                
+        proxy_set_header Host $host;                
+        proxy_http_version 1.1;                
+        proxy_pass http://io_nodes;
+    }
+}
 ```
 
 然後更改 /etc/nginx/sites-available/default :
 ```
-server {    listen 80 default\_server;    listen [::]:80 default\_server;    root /var/www/html;    server\_name  csocamp.fun;}
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+    root /var/www/html;
+    server_name  csocamp.fun;
+}
 ```
 
 檢查設定是否正確
@@ -92,7 +117,9 @@ listen 443 http2 ssl;
 
 Certbot 會在以上兩個檔案加入密匙的位置，如果沒有的話，請自行在 server {} 內加入以下句子
 ```
-     ssl\_certificate /etc/letsencrypt/live/example.com/fullchain.pem; # managed by Certbot    ssl\_certificate\_key /etc/letsencrypt/live/example.com/privkey.pem; # managed by Certbot    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+ssl_certificate /etc/letsencrypt/live/example.com/fullchain.pem; # managed by Certbot
+ssl_certificate_key /etc/letsencrypt/live/example.com/privkey.pem; # managed by Certbot
+include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
 ```
 
 取代 example.com 到你設置的域名
@@ -145,10 +172,10 @@ redis-cli ping
 cd ~
 ```
 ```
-curl -sL https://deb.nodesource.com/setup\_10.x -o nodesource\_setup.sh
+curl -sL https://deb.nodesource.com/setup_10.x -o nodesource_setup.sh
 ```
 ```
-sudo bash nodesource\_setup.sh
+sudo bash nodesource_setup.sh
 ```
 ```
 sudo apt install nodejs
