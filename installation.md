@@ -9,7 +9,7 @@
 
 設置時區
 ```
-sudo timedatectl set-timezone Asia/Hong\_Kong
+sudo timedatectl set-timezone Asia/Hong_Kong
 ```
 
 設置自動時間同步
@@ -51,7 +51,7 @@ upstream io_nodes {
 
 server {    
     listen 4000;
-    server_name csocamp.fun;
+    server_name example.com www.example.com;
 
     location / {                
         proxy_set_header Upgrade $http_upgrade;                
@@ -70,7 +70,7 @@ server {
     listen 80 default_server;
     listen [::]:80 default_server;
     root /var/www/html;
-    server_name  csocamp.fun;
+    server_name example.com www.example.com;
 }
 ```
 
@@ -100,9 +100,7 @@ sudo apt-get install python-certbot-nginx
 ```
 sudo certbot --nginx -d example.com -d www.example.com
 ```
-
 然後根據畫面的內容輸入資料
-
 
 
 然後更改 /etc/nginx/nginx.conf
@@ -254,10 +252,9 @@ node init.js
 ```
 pm2 start app.js -f
 ```
-
 輸入以上指令4次，以產生4個 instance
 
-instance 數量是 CPU 的核心數量，如果 instance 並非4的話請更改上面 nginx.conf 的 io\_nodes 行數。
+instance 數量是 CPU 的核心數量，如果 instance 並非4的話請更改上面 nginx.conf 的 io_nodes 行數。
 
 
 
