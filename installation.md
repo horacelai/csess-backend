@@ -15,6 +15,7 @@ sudo timedatectl set-timezone Asia/Hong_Kong
 設置自動時間同步
 ```
 sudo apt-get install ntp
+sudo apt-get install ntp
 ```
 
 ## Nginx 設定
