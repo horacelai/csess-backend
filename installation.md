@@ -44,10 +44,10 @@ sudo vi /etc/nginx/nginx.conf
 ```
 upstream io_nodes {  
     ip_hash;           
-    server 127.0.0.1:8081;           
-    server 127.0.0.1:8082;          
-    server 127.0.0.1:8083;           
-    server 127.0.0.1:8084;
+    server 127.0.0.1:8080;           
+    server 127.0.0.1:8081;          
+    server 127.0.0.1:8082;           
+    server 127.0.0.1:8083;
 }
 
 server {    
@@ -192,7 +192,7 @@ sudo apt install build-essential
 
 下載 PM2
 ```
-sudo npm install pm2@latest -g
+sudo npm install pm2 -g
 ```
 
 然後令 PM2 在 systemd 下運行
