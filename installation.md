@@ -37,7 +37,7 @@ sudo systemctl status nginx
 
 更改 /etc/nginx/nginx.conf
 ```
-sudo vi /etc/nging/nginx.conf
+sudo vi /etc/nginx/nginx.conf
 ```
 
 加入 http 內以下代碼：
